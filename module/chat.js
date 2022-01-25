@@ -3,9 +3,8 @@ export async function formatRoll(
   html,
   data,
 ) {
-  const colorMessage = true; // chatMessage.getFlag('apocthulhu', 'colorMessage') as boolean;
   const targetValue = chatMessage.getFlag('apocthulhu', 'targetValue');
-  console.log(targetValue);
+
   // Little helper function
   const pushDice = (data, roll, faces) => {
     let color = 'black';

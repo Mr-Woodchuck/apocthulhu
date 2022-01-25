@@ -1,10 +1,10 @@
-# apocthulhu System
+# Boilerplate System
 
-This system is a apocthulhu system that you can use as a starting point for building your own custom systems. It's similar to Simple World-building, but has examples of creating attributes in code rather than dynamically through the UI.
+This system built with the boilerplate system https://gitlab.com/asacolips-projects/foundry-mods/boilerplate that you can use as a starting point for building your own custom systems. It's similar to Simple World-building, but has examples of creating attributes in code rather than dynamically through the UI.
 
-## Usage
+## Apocthulhu System
 
-Before installing this system, you should rename any files that have `apocthulhu` in their filename to use whatever machine-safe name your system needs, such as `adnd2e` if you were building a system for 2nd edition Advanced Dungeons & Dragons. In addition, you should search through the files for `apocthulhu` and `apocthulhu` and do the same for those, replacing them with appropriate names for your system.
+This system is built for the APOCTHULHU System, unofficially. It is still in the works, but should be mostly functional.
 
 ## Sheet Layout
 

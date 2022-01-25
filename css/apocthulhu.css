@@ -1,36 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
-.dice-roll .dice-result .dice-formula,
-.dice-roll .dice-result .dice-total {
-  height: 30px;
-}
-.dice-roll .dice-result .dice-formula .dice,
-.dice-roll .dice-result .dice-total .dice {
-  margin: 2px;
-  display: inline-flex;
-  width: 25px;
-  height: 25px;
-}
-.dice-roll .dice-result .dice-formula .dice label,
-.dice-roll .dice-result .dice-total .dice label {
-  font-weight: bold;
-  text-align: center;
-  width: 100%;
-  z-index: 1;
-}
-.dice-roll .dice-result .dice-formula .dice img,
-.dice-roll .dice-result .dice-total .dice img {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  border: none;
-}
-.dice-roll .dice-result .dice-formula .modifier,
-.dice-roll .dice-result .dice-total .modifier {
-  margin: 2px;
-  display: inline-flex;
-}
-
 /* Global styles */
 .window-app {
   font-family: "Roboto", sans-serif;
@@ -253,6 +221,45 @@
   -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
+}
+
+.dice-roll .dice-result .dice-formula,
+.dice-roll .dice-result .dice-total {
+  height: 30px;
+}
+
+.dice-roll .dice-result .dice-formula .dice,
+.dice-roll .dice-result .dice-total .dice {
+  margin: 2px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+}
+
+.dice-roll .dice-result .dice-formula .dice label,
+.dice-roll .dice-result .dice-total .dice label {
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.dice-roll .dice-result .dice-formula .dice img,
+.dice-roll .dice-result .dice-total .dice img {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: none;
+}
+
+.dice-roll .dice-result .dice-formula .modifier,
+.dice-roll .dice-result .dice-total .modifier {
+  margin: 2px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 /* Styles limited to apocthulhu sheets */

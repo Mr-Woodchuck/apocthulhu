@@ -11,13 +11,15 @@
   "browserslist": [
     "last 3 versions"
   ],
-  "author": "John Doe",
+  "author": "Kyle Brown",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-sass": "^7.0.1"
   }
 }
