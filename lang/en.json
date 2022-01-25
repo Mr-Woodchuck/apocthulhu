@@ -1,0 +1,22 @@
+{
+  "apocthulhu.AbilityStr": "Strength",
+  "apocthulhu.AbilityCon": "Constitution",
+  "apocthulhu.AbilityDex": "Dexterity",
+  "apocthulhu.AbilityInt": "Intelligence",
+  "apocthulhu.AbilityPow": "Power",
+  "apocthulhu.AbilityCha": "Charisma",
+
+  "apocthulhu.AbilityStrAbbr": "str",
+  "apocthulhu.AbilityConAbbr": "con",
+  "apocthulhu.AbilityDexAbbr": "dex",
+  "apocthulhu.AbilityIntAbbr": "int",
+  "apocthulhu.AbilityPowAbbr": "pow",
+  "apocthulhu.AbilityChaAbbr": "cha",
+
+  "apocthulhu.EffectCreate": "Create Effect",
+  "apocthulhu.EffectToggle": "Toggle Effect",
+  "apocthulhu.EffectEdit": "Edit Effect",
+  "apocthulhu.EffectDelete": "Delete Effect",
+
+  "apocthulhu.Add": "Add"
+}

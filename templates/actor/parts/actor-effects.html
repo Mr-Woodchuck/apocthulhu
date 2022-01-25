@@ -1,0 +1,73 @@
+<div class="effects-list">
+  <ol class="items-list">
+  {{#each effects as |section sid|}}
+    <li class="items-header flexrow" data-effect-type="{{section.type}}">
+      <h3 class="item-name effect-name flexrow">{{localize section.label}}</h3>
+      <div class="effect-source">Source</div>
+      <div class="effect-source">Duration</div>
+      <div class="item-controls effect-controls flexrow">
+        <a class="effect-control" data-action="create" title="{{localize 'apocthulhu.EffectCreate'}}">
+          <i class="fas fa-plus"></i> {{localize "apocthulhu.Add"}}
+        </a>
+      </div>
+    </li>
+
+    {{#each section.effects as |effect|}}
+      <li class="item effect flexrow" data-effect-id="{{effect.id}}">
+        <div class="item-name effect-name flexrow">
+          <img class="item-image" src="{{effect.data.icon}}"/>
+          <h4>{{effect.data.label}}</h4>
+        </div>
+        <div class="effect-source">{{effect.sourceName}}</div>
+        <div class="effect-duration">{{effect.duration.label}}</div>
+        <div class="item-controls effect-controls flexrow">
+          <a class="effect-control" data-action="toggle" title="{{localize 'apocthulhu.EffectToggle'}}">
+            <i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
+          </a>
+          <a class="effect-control" data-action="edit" title="{{localize 'apocthulhu.EffectEdit'}}">
+            <i class="fas fa-edit"></i>
+          </a>
+          <a class="effect-control" data-action="delete" title="{{localize 'apocthulhu.EffectDelete'}}">
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
+      </li>
+    {{/each}}
+  {{/each}}
+</ol>
+<ol class="items-list">
+  {{#each bonds as |section sid|}}
+    <li class="items-header flexrow" data-item-type="{{section.type}}">
+      <h3 class="item-name item-name flexrow">{{localize section.label}}</h3>
+      <div class="item-source">Score</div>
+      <div class="item-controls item-controls flexrow">
+        <a class="item-create" data-action="create" title="{{localize section.label}}" data-type="{{section.type}}">
+          <i class="fas fa-plus"></i> {{localize "apocthulhu.Add"}}
+        </a>
+      </div>
+    </li>
+
+    <ol class="item-list">
+    {{#each section.bonds as |bond|}}
+      <li class="item item flexrow" data-item-id="{{bond._id}}">
+        <div class="item-name item-name flexrow rollable">
+          <!-- <img class="item-image" src="{{bond.data.icon}}"/> -->
+          <h4>{{bond.name}}</h4>
+        </div>
+        <div class="item-source">{{bond.data.score}}</div>
+        <div class="item-controls item-controls flexrow">
+          <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+          <!-- <a class="bond-control" data-action="edit" title="{{localize 'apocthulhu.EffectEdit'}}">
+            <i class="fas fa-edit"></i>
+          </a>
+          <a class="bond-control" data-action="delete" title="{{localize 'apocthulhu.EffectDelete'}}">
+            <i class="fas fa-trash"></i>
+          </a> -->
+        </div>
+      </li>
+    {{/each}}
+    </ol>
+  {{/each}}
+</ol>
+</div>
