@@ -57,6 +57,8 @@ export class ApocthulhuActorSheet extends ActorSheet {
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(this.actor.effects);
 
+    context.showsSanity = game.user.isGM || game.settings.get('apocthulhu', 'showsSanity');
+
     console.log(context);
 
     return context;
@@ -157,6 +159,20 @@ export class ApocthulhuActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    html.find('.san-adjust').click(event => {
+      // Adjust
+      // this.actor
+      RollDialog.RollDialog("Sanity Adjustment",
+      "I need some template here, but lets see what this does",
+      [
+          RollDialog.simpleButton("Add Sanity", (html) => { this.actor.addSan() } ),
+          RollDialog.simpleButton("Take Damage", (html) => { this.actor.takeSanDmg() }),
+          {
+            label: "Close"
+          }
+      ]
+      );
+    });
     // Render the item sheet for viewing/editing prior to the editable check.
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
@@ -250,20 +266,8 @@ export class ApocthulhuActorSheet extends ActorSheet {
       }
     }
 
-    // Handle rolls that supply the formula directly.
-    // This is where I would display dialog if needing to add modifiers or adjustments.
-    // Can probably make an element elsewhere to fully handle modifiers adjustments or displays.
-    // Pass what that needs in here.
     if (dataset.roll) {
-      RollDialog.rollAttribute(dataset.roll, dataset.label, this.actor);
-      // let label = dataset.label ? `[ability] ${dataset.label}` : '';
-      // let roll = new Roll("d100", this.actor.getRollData());
-      // roll.toMessage({
-      //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      //   flavor: label,
-      //   rollMode: game.settings.get('core', 'rollMode'),
-      // });
-      // return roll;
+      this.actor.rollAttribute(dataset.roll, dataset.label);
     }
   }
 }

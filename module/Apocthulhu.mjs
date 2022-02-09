@@ -16,6 +16,16 @@ import ApocthulhuHooks from './ApocthulhuHooks.js';
 
 Hooks.once('init', async function() {
 
+  // Settings
+  game.settings.register("apocthulhu","showsSanity", {
+    name: "apocthulhu.showsSanity",
+    hint: "apocthulhu.sanityHint",
+    default: true,
+    scope: "world",
+    type: Boolean,
+    config: true
+  });
+
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   game.apocthulhu = {
@@ -32,7 +42,7 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d20 + @abilities.dex.mod",
+    formula: "@abilities.dex.value",
     decimals: 2
   };
 

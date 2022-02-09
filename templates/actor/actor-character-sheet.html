@@ -8,15 +8,7 @@
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns.  --}}
-      {{#if game.users.current.isGM}}
-
-      <div class="resources grid grid-4col">
-
-      {{else}}
-
       <div class="resources grid grid-3col">
-
-      {{/if}}
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
@@ -39,22 +31,17 @@
           </div>
         </div>
 
-        {{#if game.users.current.isGM}}
         <div class="resource flex-group-center">
           <label for="data.sanity.value" class="resource-label">Sanity</label>
+          {{#if showsSanity}}
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.sanity.value" value="{{data.sanity.value}}" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="data.sanity.max" value="{{data.sanity.max}}" data-dtype="Number"/>
+            <span>{{data.sanity.value}} / {{data.sanity.max}}</span>
+            <div class="resource-content flexrow flex-center flex-between">
+              <input type="text" name="data.sanity.breakpoint" value="{{data.sanity.breakpoint}}" data-dtype="Number"/>
+            </div>
           </div>
-        </div>
-        {{/if}}
-
-        <div class="resource flex-group-center">
-          <label for="data.sanity.breakpoint" class="resource-label">Sanity Breakpoint</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.sanity.breakpoint" value="{{data.sanity.breakpoint}}" data-dtype="Number"/>
-          </div>
+          {{/if}}
+          <button class="rollable san-adjust">Sanity Adjustment</button>
         </div>
 
       </div>

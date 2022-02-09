@@ -18,5 +18,10 @@
   "apocthulhu.EffectEdit": "Edit Effect",
   "apocthulhu.EffectDelete": "Delete Effect",
 
-  "apocthulhu.Add": "Add"
+  "apocthulhu.Add": "Add",
+
+  "apocthulhu.menu": "Apocthulhu Settings",
+  "apocthulhu.settingsTitle": "Apocthulhu Settings",
+  "apocthulhu.settingsHint": "Apocthulhu System Settings"
+
 }
