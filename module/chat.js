@@ -4,11 +4,12 @@ export async function formatRoll(
   data,
 ) {
   const targetValue = chatMessage.getFlag('apocthulhu', 'targetValue');
+  const lethalityDamage = chatMessage.getFlag('apocthulhu', 'lethalityDamage');
+  const lethality = chatMessage.getFlag('apocthulhu', 'lethality');
 
   // Little helper function
-  const pushDice = (data, roll, faces) => {
+  const pushDice = (data, total, faces) => {
     let color = 'black';
-    let total = roll.total;
 
     let critical = ([1, 11, 22, 33, 44, 55, 66, 77, 88, 99, 100].indexOf(total) > -1);
 
@@ -40,7 +41,7 @@ export async function formatRoll(
     } else {
       let img = '';
       if ([4, 6, 8, 10, 12, 20].indexOf(faces) > -1) {
-        img = `icons/svg/d10-grey.svg`;
+        img = `icons/svg/d${faces}-grey.svg`;
       }
       data.dice.push({
         img: img,
@@ -62,7 +63,7 @@ export async function formatRoll(
       term.results.forEach((result) => {
         totalDice += result.result;
       });
-      pushDice(chatData, roll, faces);
+      pushDice(chatData, term.total, faces);
     } else {
       chatData.dice.push({
         img: null,
@@ -79,6 +80,12 @@ export async function formatRoll(
     .replaceWith(await renderTemplate(formulaTemplate, chatData));
 
   let results = { result: roll.total }
+  if (lethality == true) {
+    results = { result: "Fatal" }
+  }
+  if (lethalityDamage !== 'undefined') {
+    { result: lethalityDamage }
+  }
   if (chatMessage.getFlag('apocthulhu', 'isSkill')) {
     results.isSkill = true;
   }

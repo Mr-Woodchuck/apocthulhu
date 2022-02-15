@@ -22,11 +22,17 @@
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
+      {{!-- As you add new fields, add them in here! --}}
       <label class="resource-label">Target Value</label>
       <input type="text" name="data.targetValue" value="{{data.targetValue}}" data-dtype="Integer"/>
-      <label class="resource-label">Roll Formula</label>
+      <label class="resource-label">Has Failed</label>
       <input type="checkbox" name="data.failed"{{#if data.failed}} checked {{/if}} data-dtype="boolean"/>
-      {{!-- As you add new fields, add them in here! --}}
+      {{!-- System tools --}}
+      {{#if isGM }}
+      <br />
+      <label class="resource-label">Shows in weapons</label>
+      <input type="checkbox" name="data.showsInWeapons"{{#if data.showsInWeapons}} checked {{/if}} data-dtype="boolean"/>
+      {{/if}}
     </div>
   </section>
 

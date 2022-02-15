@@ -59,8 +59,6 @@ export class ApocthulhuActorSheet extends ActorSheet {
 
     context.showsSanity = game.user.isGM || game.settings.get('apocthulhu', 'showsSanity');
 
-    console.log(context);
-
     return context;
   }
 
@@ -88,6 +86,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
   _prepareItems(context) {
     // Initialize containers.
     const gear = [];
+    const weapons = [];
     const skills = [];
     const spells = {
       0: [],
@@ -140,6 +139,37 @@ export class ApocthulhuActorSheet extends ActorSheet {
           bonds.community.bonds.push(i);
         }
       }
+      // Append to weapons
+      else if (i.type === 'weapon') {
+        let range = i.data.range;
+        if (range == null) {
+          range = "";
+        }
+
+        let radius = i.data.radius;
+        if (range == null) {
+          radius = "";
+        }
+
+        let damage = i.data.damage;
+        if (damage == "") {
+          let lethality = i.data.lethality;
+          if (lethality == "") {
+            // if it doesn't have damage, or lethality, skip it.
+            continue;
+          }
+          damage = `L${lethality}%`;
+        }
+
+        weapons.push({
+          "_id": i._id,
+          "name": i.name,
+          "img": i.img,
+          "damage": damage,
+          "range": range,
+          "radius": radius
+        });
+      }
       // Append to Motivations
       // else if (i.type === 'motivation') {
       //   motivations.push(i);
@@ -151,6 +181,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
     context.skills = skills;
     context.spells = spells;
     context.bonds = bonds;
+    context.weapons = weapons;
   }
 
   /* -------------------------------------------- */
@@ -200,6 +231,14 @@ export class ApocthulhuActorSheet extends ActorSheet {
 
     // Rollable abilities.
     html.find('.rollable').click(this._onRoll.bind(this));
+
+    // Render the item sheet for viewing/editing prior to the editable check.
+    html.find('.skill-check').click(async ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+
+      await item.update({ "data.failed": item.data.data.failed == false });
+    });
 
     // Drag events for macros.
     if (this.actor.isOwner) {

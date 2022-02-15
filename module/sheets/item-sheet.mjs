@@ -35,6 +35,19 @@ export class ApocthulhuItemSheet extends ItemSheet {
     // Use a safe clone of the item data for further operations.
     const itemData = context.item.data;
 
+    let skillList = [];
+
+    for (let item of this.actor.data.items) {
+      if (item.type === "skill" && item.data.data.showsInWeapons) {
+        if (itemData.data.associatedSkill === item.data._id) {
+          item.selected = true;
+        }
+        skillList.push(item);
+      }
+    }
+
+    context.weaponSkillList = skillList;
+
     // Retrieve the roll data for TinyMCE editors.
     context.rollData = {};
     let actor = this.object?.parent ?? null;
@@ -45,6 +58,8 @@ export class ApocthulhuItemSheet extends ItemSheet {
     // Add the actor's data to context.data for easier access, as well as flags.
     context.data = itemData.data;
     context.flags = itemData.flags;
+
+    context.isGM = game.user.isGM;
 
     return context;
   }
