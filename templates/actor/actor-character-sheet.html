@@ -37,10 +37,28 @@
           <div class="resource-content flexrow flex-center flex-between">
             <span>{{data.sanity.value}} / {{data.sanity.max}}</span>
             <div class="resource-content flexrow flex-center flex-between">
-              <input type="text" name="data.sanity.breakpoint" value="{{data.sanity.breakpoint}}" data-dtype="Number"/>
+              Breakpoint: {{data.sanity.breakpoint}}
             </div>
           </div>
           {{/if}}
+          <div class="resource grid-4col">
+            <div>
+              Violence
+            </div>
+            <div>
+              <input type="checkbox" name="data.violenceCheck1"{{#if data.violenceCheck1}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="data.violenceCheck2"{{#if data.violenceCheck2}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="data.violenceCheck3"{{#if data.violenceCheck3}} checked {{/if}} data-dtype="boolean"/>
+            </div>
+            <div>
+              Helplessness
+            </div>
+            <div>
+              <input type="checkbox" name="data.helplessnessCheck1"{{#if data.helplessnessCheck1}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="data.helplessnessCheck2"{{#if data.helplessnessCheck2}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="data.helplessnessCheck3"{{#if data.helplessnessCheck3}} checked {{/if}} data-dtype="boolean"/>
+            </div>
+          </div>
           <button class="rollable san-adjust">Sanity Adjustment</button>
         </div>
 

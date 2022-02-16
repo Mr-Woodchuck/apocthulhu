@@ -11,23 +11,27 @@ export async function formatRoll(
   const pushDice = (data, total, faces) => {
     let color = 'black';
 
-    let critical = ([1, 11, 22, 33, 44, 55, 66, 77, 88, 99, 100].indexOf(total) > -1);
-
-    // 1 is always critical success, 100 is always a critical failure
-    if (total == 1 || (total <= targetValue && total !== 100)) {
-      if (critical) {
-        // critical success
-        color = 'blue';
-      } else {
-        // normal success
-        color = 'green';
-      }
-    } else if (critical) {
-      // critical failure
-      color = 'red';
-    }
-
     if (faces == 100) {
+
+      let critical = ([1, 11, 22, 33, 44, 55, 66, 77, 88, 99, 100].indexOf(total) > -1);
+
+      // color the dice if not a lethality roll
+      if (!(lethality == true && lethalityDamage !== 'undefined')) {
+        // 1 is always critical success, 100 is always a critical failure
+        if (total == 1 || (total <= targetValue && total !== 100)) {
+          if (critical) {
+            // critical success
+            color = 'blue';
+          } else {
+            // normal success
+            color = 'green';
+          }
+        } else if (critical) {
+          // critical failure
+          color = 'red';
+        }
+      }
+
       data.dice.push({
         img: 'icons/svg/d10-grey.svg',
         result: total - (total % 10),

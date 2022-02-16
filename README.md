@@ -7,13 +7,9 @@ This system is built for the APOCTHULHU System, unofficially. It is still in the
 
 I have plans on adding
 
-* Computed Damage Bonus
 * Resource Ratings
 * Resource Checks
 * Updating weapons
- * Adding weapon type
- * Allowing them to roll Damage
- * Allowing them to roll lethality
  * Adding some weapons to a compendium
 * Pushing sanity damage to bonds
 *  Rolling on bonds
