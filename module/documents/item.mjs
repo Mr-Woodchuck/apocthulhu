@@ -97,7 +97,6 @@ export class ApocthulhuItem extends Item {
         damageRoll = `${damage} + ${bonus}`
       }
 
-      console.log(damageRoll);
       let roll = await new Roll(damageRoll).evaluate({async: true});
       let flavor = `${label} damage`;
       if (damage == "" && lethality !== 'NaN' && roll.total > lethality) {
@@ -152,6 +151,28 @@ export class ApocthulhuItem extends Item {
       }
     }
 
+    rollBond(speaker, rollMode, label) {
+
+        let rollData = this.getRollData();
+
+        if (this.data.data.score) {
+          RollDialog.easyNormalHardMod(label, label, async (html, modAdjustment) => {
+            // roll
+            let roll = await new Roll("1d100").evaluate({async: true});
+
+            let target = modAdjustment(parseInt(this.data.data.score));
+            // Print Chat
+              let chatMessage = await roll.toMessage({
+                speaker: speaker,
+                flavor: `${label} target of ${target}`,
+                rollMode: rollMode,
+              });
+              chatMessage.setFlag('apocthulhu', 'targetValue', target);
+              chatMessage.setFlag('apocthulhu', 'isSkill', true);
+          });
+        }
+      }
+
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
@@ -175,6 +196,7 @@ export class ApocthulhuItem extends Item {
       case "spell":
         break;
       case "bond":
+        return this.rollBond(speaker, rollMode, label);
         break;
     }
     // If there's no roll data, send a chat message.

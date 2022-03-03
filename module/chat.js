@@ -16,7 +16,7 @@ export async function formatRoll(
       let critical = ([1, 11, 22, 33, 44, 55, 66, 77, 88, 99, 100].indexOf(total) > -1);
 
       // color the dice if not a lethality roll
-      if (!(lethality == true && lethalityDamage !== 'undefined')) {
+      if (!(lethality == true && lethalityDamage != undefined)) {
         // 1 is always critical success, 100 is always a critical failure
         if (total == 1 || (total <= targetValue && total !== 100)) {
           if (critical) {
@@ -87,8 +87,8 @@ export async function formatRoll(
   if (lethality == true) {
     results = { result: "Fatal" }
   }
-  if (lethalityDamage !== 'undefined') {
-    { result: lethalityDamage }
+  if (lethalityDamage != undefined) {
+    results = { result: lethalityDamage }
   }
   if (chatMessage.getFlag('apocthulhu', 'isSkill')) {
     results.isSkill = true;
