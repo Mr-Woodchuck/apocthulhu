@@ -22,7 +22,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "sanity",
   "url": "",
-  "manifest": "",
-  "download": "",
+  "manifest": "https://raw.githubusercontent.com/Mr-Woodchuck/apocthulhu/main/system.json",
+  "download": "https://raw.githubusercontent.com/Mr-Woodchuck/apocthulhu/archive/refs/heads/main.zip",
   "license": "LICENSE.txt"
 }
