@@ -194,10 +194,23 @@ export class ApocthulhuItem extends Item {
       case "skill":
         return this.rollSkill(speaker, rollMode, label);
       case "spell":
-        break;
+        ChatMessage.create({
+          speaker: speaker,
+          rollMode: rollMode,
+          flavor: label,
+          content: item.data.description ?? ''
+        });
+        return;
+      case "tome":
+        ChatMessage.create({
+          speaker: speaker,
+          rollMode: rollMode,
+          flavor: label,
+          content: item.data.description ?? ''
+        });
+        return;
       case "bond":
         return this.rollBond(speaker, rollMode, label);
-        break;
     }
     // If there's no roll data, send a chat message.
     // if (!this.data.data.formula && !this.data.data.targetValue) {

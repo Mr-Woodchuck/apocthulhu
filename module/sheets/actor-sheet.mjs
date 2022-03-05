@@ -88,18 +88,8 @@ export class ApocthulhuActorSheet extends ActorSheet {
     const gear = [];
     const weapons = [];
     const skills = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
-    };
+    const spells = [];
+    const tomes = [];
     const bonds = {
       individual: {
         type: "individual",
@@ -116,20 +106,25 @@ export class ApocthulhuActorSheet extends ActorSheet {
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
-      i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
       if (i.type === 'item') {
+        i.img = i.img || DEFAULT_TOKEN;
         gear.push(i);
       }
       // Append to skills.
       else if (i.type === 'skill') {
+        i.img = i.img || "icons/svg/d20-black.svg";
         skills.push(i);
       }
       // Append to spells.
       else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
-        }
+        i.img = i.img || "icons/svg/explosion.svg";
+        console.log(i);
+          spells.push(i);
+      }
+      else if (i.type === 'tome') {
+        i.img = i.img || "icons/svg/book.svg";
+        tomes.push(i);
       }
       // Append to bonds.
       else if (i.type === 'bond') {
@@ -141,6 +136,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
       }
       // Append to weapons
       else if (i.type === 'weapon') {
+        i.img = i.img || "icons/svg/sword.svg";
         let range = i.data.range;
         if (range == null) {
           range = "";
@@ -180,6 +176,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
     context.gear = gear;
     context.skills = skills;
     context.spells = spells;
+    context.tomes = tomes;
     context.bonds = bonds;
     context.weapons = weapons;
   }
@@ -271,17 +268,36 @@ export class ApocthulhuActorSheet extends ActorSheet {
 
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
+    let img = "icons/svg/item-bag.svg";
+    switch (type) {
+    case 'item':
+      break;
+    case 'skill':
+      img = "icons/svg/d20-black.svg";
+      break;
+    case 'spell':
+      img = "icons/svg/explosion.svg";
+      break;
+    case 'tome':
+      img = "icons/svg/book.svg";
+      break;
+    case 'weapon':
+      img = "icons/svg/sword.svg";
+      break;
+    default:
+      img = null;
+      break;
+    }
     // Prepare the item object.
     const itemData = {
       name: name,
       type: type,
-      data: data
+      data: data,
+      img: img
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data["type"];
 
-    console.log(itemData);
-    console.log(type);
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
   }

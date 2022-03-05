@@ -56,7 +56,7 @@
     }
   },
   "Item": {
-    "types": ["bond", "item", "skill", "spell", "weapon"],
+    "types": ["bond", "item", "skill", "spell", "tome", "weapon"],
     "templates": {
       "base": {
         "description": ""
@@ -76,7 +76,13 @@
     },
     "spell": {
       "templates": ["base"],
-      "spellLevel": 1
+      "studyTime": "days",
+      "castingTime": "",
+      "consequence": "1D4"
+    },
+    "tome": {
+      "templates": ["base"],
+      "studyTime": "weeks"
     },
     "bond": {
       "templates": ["base"],
