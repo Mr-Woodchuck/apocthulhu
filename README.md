@@ -1,7 +1,15 @@
 
 # Apocthulhu System
 
-This system is built for the APOCTHULHU System, unofficially. It is still in the works, but should be mostly functional.
+This system is built for the APOCTHULHU System, unofficially. It should be mostly functional.
+
+## Installing
+
+To install, navigate to the `Game Systems` tab, and press the `Install System` button. Enter this into the Manifest URL box:
+
+```
+https://raw.githubusercontent.com/Mr-Woodchuck/apocthulhu/main/system.json
+```
 
 ## TODO
 
