@@ -321,6 +321,10 @@ export class ApocthulhuActorSheet extends ActorSheet {
       }
     }
 
+    if (dataset.roll === "resources") {
+      return this.actor.rollWithMod("Resources", "resources", this.actor.data.data.resources.value * 5, () => {})
+    }
+
     if (dataset.roll) {
       this.actor.rollAttribute(dataset.roll, dataset.label);
     }

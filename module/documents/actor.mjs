@@ -219,10 +219,14 @@ export class ApocthulhuActor extends Actor {
 
     let attributeValue = actorAttributes[attribute].value * 5;
 
+    return this.rollWithMod(attribute, label, attributeValue, callback);
+  }
+
+  rollWithMod(name, label, target, callback) {
     let dialogTemplate = `
-    <h1> Rolling ${attribute} </h1>
+    <h1> Rolling ${name} </h1>
     <div style="display:flex">
-      <div  style="flex:1">${attributeValue}</div>
+      <div  style="flex:1">${target}</div>
       <span style="flex:1">Mod <input  id="mod" type="number" style="width:50px;float:right" value=0 /></span>
       </div>
     `
@@ -230,7 +234,7 @@ export class ApocthulhuActor extends Actor {
         rollAtk: {
           label: `Roll ${label}`,
           callback: async (html) => {
-            let attributeMod = parseInt(html.find("#mod")[0].value);
+            let mod = parseInt(html.find("#mod")[0].value);
             // roll
             let roll = await new Roll("1d100").evaluate({async: true});
 
@@ -239,12 +243,12 @@ export class ApocthulhuActor extends Actor {
                 speaker: {
                   alias: this.name
                 },
-                flavor: `${label} < ${attributeValue} + ${attributeMod}`,
+                flavor: `${label} < ${target} + ${mod}`,
                 rollMode: game.settings.get('core', 'rollMode'),
               });
-              chatMessage.setFlag('apocthulhu', 'targetValue', attributeValue + attributeMod);
+              chatMessage.setFlag('apocthulhu', 'targetValue', target + mod);
 
-              callback(roll.total <= attributeValue + attributeMod);
+              callback(roll.total <= target + mod);
           }
         },
         close: {
