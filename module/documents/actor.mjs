@@ -217,7 +217,7 @@ export class ApocthulhuActor extends Actor {
 
     let actorAttributes = this.data.data.abilities;
 
-    var attributeValue = actorAttributes[attribute].value * 5;
+    let attributeValue = actorAttributes[attribute].value * 5;
 
     let dialogTemplate = `
     <h1> Rolling ${attribute} </h1>

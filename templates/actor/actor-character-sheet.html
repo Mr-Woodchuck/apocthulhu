@@ -114,11 +114,11 @@
             </div>
             <div class="ability flexrow">
               <div>
-                <input type="text" name="data.resources.atHand" value="{{data.resources.inStorage}}" data-dtype="Number"/>
+                <input type="text" name="data.resources.atHand" value="{{data.resources.atHand}}" data-dtype="Number"/>
                 <label class="resource-label rollable flexlarge align-left">At Hand</label>
               </div>
               <div>
-                <input type="text" name="data.resources.stowed" value="{{data.resources.inStorage}}" data-dtype="Number"/>
+                <input type="text" name="data.resources.stowed" value="{{data.resources.stowed}}" data-dtype="Number"/>
                 <label class="resource-label rollable flexlarge align-left">Stowed</label>
               </div>
               <div>
@@ -150,23 +150,23 @@
           </div>
           <div>
             <label class="resource-label align-left" >Archtype</label>
-            <input type="text" name="actor.archtype" value="{{actor.archtype}}" data-dtype="Number"/>
+            <input type="text" name="actor.data.archtype" value="{{actor.data.archtype}}" data-dtype="Number"/>
           </div>
           <div>
             <label class="resource-label align-left" >Age</label>
-            <input type="text" name="actor.age" value="{{actor.age}}" data-dtype="Number"/>
+            <input type="text" name="actor.data.age" value="{{actor.data.age}}" data-dtype="Number"/>
           </div>
           <div>
             <label class="resource-label align-left" >Sex</label>
-            <input type="text" name="actor.sex" value="{{actor.sex}}" data-dtype="Number"/>
+            <input type="text" name="actor.data.sex" value="{{actor.data.sex}}" data-dtype="Number"/>
           </div>
           <div>
             <label class="resource-label align-left" >Home</label>
-            <input type="text" name="actor.home" value="{{actor.home}}" data-dtype="Number"/>
+            <input type="text" name="actor.data.home" value="{{actor.data.home}}" data-dtype="Number"/>
           </div>
           <div>
             <label class="resource-label align-left" >Birthplace</label>
-            <input type="text" name="actor.birthplace" value="{{actor.birthplace}}" data-dtype="Number"/>
+            <input type="text" name="actor.data.birthplace" value="{{actor.data.birthplace}}" data-dtype="Number"/>
           </div>
       </aside>
       {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}

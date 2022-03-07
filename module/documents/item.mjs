@@ -146,7 +146,7 @@ export class ApocthulhuItem extends Item {
             });
             chatMessage.setFlag('apocthulhu', 'targetValue', target);
             chatMessage.setFlag('apocthulhu', 'isSkill', true);
-            callback(roll.total < target);
+            callback(roll.total <= target);
         });
       }
     }
