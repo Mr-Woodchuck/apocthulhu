@@ -41,11 +41,15 @@ export class ApocthulhuItemSheet extends ItemSheet {
       if (item.type === "skill" && item.data.data.showsInWeapons) {
         if (itemData.data.associatedSkill === item.data._id) {
           item.selected = true;
+        } else {
+          item.selected = false;
         }
         skillList.push(item);
       }
     }
 
+    console.log(itemData.data.associatedSkill);
+    console.log(skillList);
     context.weaponSkillList = skillList;
 
     // Retrieve the roll data for TinyMCE editors.

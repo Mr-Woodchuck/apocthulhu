@@ -191,7 +191,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
       // Adjust
       // this.actor
       RollDialog.RollDialog("Sanity Adjustment",
-      "I need some template here, but lets see what this does",
+      "Add sanity, or take some sanity damage.",
       [
           RollDialog.simpleButton("Add Sanity", (html) => { this.actor.addSan() } ),
           RollDialog.simpleButton("Take Damage", (html) => { this.actor.takeSanDmg() }),
