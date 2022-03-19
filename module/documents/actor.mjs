@@ -128,11 +128,10 @@ export class ApocthulhuActor extends Actor {
 
           let flavor = "";
           await this.update({ 'data.sanity.value': this.data.data.sanity.value - roll.total });
-          await this.update({ 'data.sanity.breakpoint': this.data.data.sanity.breakpoint - roll.total });
 
           if (this.data.data.sanity.value <= 0) {
             flavor = "Sad day, you are insane";
-          } else if (this.data.data.sanity.breakpoint <= 0) {
+          } else if (this.data.data.sanity.value <= this.data.data.sanity.breakpoint) {
             flavor = "You have increased in your temporary insanity";
           }
 
