@@ -38,9 +38,9 @@
         <label class="resource-label">Damage</label>
         <input type="text" name="data.damage" value="{{data.damage}}" data-dtype="String"/>
         <label class="resource-label">Range</label>
-        <input type="text" name="data.range" value="{{data.range}}" data-dtype="Integer"/>
+        <input type="text" name="data.range" value="{{data.range}}" data-dtype="String"/>
         <label class="resource-label">Lethality</label>
-        <input type="text" name="data.lethality" value="{{data.lethality}}" data-dtype="Integer"/>
+        <input type="text" name="data.lethality" value="{{data.lethality}}" data-dtype="Number"/>
         <label class="resource-label">Associated Skill</label>
         <div  style="flex:1">
           <select id="data.associatedSkill" name="data.associatedSkill">
@@ -53,7 +53,7 @@
         <input type="checkbox" name="data.strBonus"{{#if data.strBonus}} checked {{/if}} data-dtype="boolean"/>
         <br />
         <label class="resource-label">Kill Radius</label>
-        <input type="text" name="data.radius" value="{{data.radius}}" data-dtype="Integer"/>
+        <input type="text" name="data.radius" value="{{data.radius}}" data-dtype="Number"/>
       </div>
     </div>
   </section>

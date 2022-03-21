@@ -40,6 +40,8 @@ export class ApocthulhuActorSheet extends ActorSheet {
     context.data = actorData.data;
     context.flags = actorData.flags;
 
+    context.maxSanity = 99;
+
     // Prepare character data and items.
     if (actorData.type == 'character') {
       this._prepareItems(context);
@@ -114,6 +116,9 @@ export class ApocthulhuActorSheet extends ActorSheet {
       // Append to skills.
       else if (i.type === 'skill') {
         i.img = i.img || "icons/svg/d20-black.svg";
+        if (i.data.removesSanity == true) {
+          context.maxSanity = context.maxSanity - i.data.targetValue;
+        }
         skills.push(i);
       }
       // Append to spells.
