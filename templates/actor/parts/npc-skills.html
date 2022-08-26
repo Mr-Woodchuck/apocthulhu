@@ -1,0 +1,35 @@
+<section class="grid grid-3col">
+  <aside class="sidebar">
+
+    {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+    use both the "grid" and "grid-Ncol" class where "N" can be any number
+    from 1 to 12 and will create that number of columns.  --}}
+    <div class="abilities flexcol">
+      <label class="resource-label flexlarge align-center" >Attributes</label>
+
+      {{#each data.abilities as |ability key|}}
+
+      <div class="ability flexrow flex-group-center">
+        <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="{{key}}" data-label="{{ability.label}}">{{ability.label}}</label>
+        <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+        <span class="ability-mod rollable" data-roll="{{key}}" data-label="{{ability.label}}">{{times ability.value 5}}</span>
+      </div>
+
+      {{/each}}
+
+    </div>
+
+  </aside>
+
+  {{!-- For the main skills list, span the right two columns --}}
+  <section class="main">
+    {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+    {{> "systems/apocthulhu/templates/actor/parts/npc-features.html"}}
+  </section>
+
+  <section class="main">
+     {{> "systems/apocthulhu/templates/actor/parts/npc-items.html"}}
+  </section>
+
+
+</section>

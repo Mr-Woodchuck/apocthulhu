@@ -78,5 +78,9 @@ export class ApocthulhuItemSheet extends ItemSheet {
     if (!this.isEditable) return;
 
     // Roll handlers, click handlers, etc. would go here.
+    html.find('.item-delete').click(ev => {
+      this.close();
+      this.item.delete();
+    });
   }
 }

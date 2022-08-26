@@ -45,7 +45,7 @@ export class ApocthulhuActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
+    if (actorData.type !== 'character' || actorData.type !== 'npc') return;
 
     // Make modifications to data here. For example:
     const data = actorData.data;

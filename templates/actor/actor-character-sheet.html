@@ -81,63 +81,7 @@
 
     {{!-- Skills Tab --}}
     <div class="tab skills" data-group="primary" data-tab="skills">
-      <section class="grid grid-3col">
-        <aside class="sidebar">
-
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns.  --}}
-          <div class="abilities flexcol">
-            <label class="resource-label flexlarge align-center" >Attributes</label>
-
-            {{#each data.abilities as |ability key|}}
-
-            <div class="ability flexrow flex-group-center">
-              <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="{{key}}" data-label="{{ability.label}}">{{ability.label}}</label>
-              <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="{{key}}" data-label="{{ability.label}}">{{times ability.value 5}}</span>
-            </div>
-
-            {{/each}}
-
-            <label class="resource-label flexlarge align-center" >Resources</label>
-            <div class="ability flexrow flex-group-center">
-              <label for="data.resources.value" class="resource-label rollable flexlarge align-left" data-roll="resources" data-label="Resources">Resources</label>
-              <input type="text" name="data.resources.value" value="{{data.resources.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="resources" data-label="resources">{{times data.resources.value 5}}</span>
-            </div>
-            <label class="resource-label flexlarge align-center" >Resource Checks</label>
-            <div class="ability flexrow flex-group-center">
-              <input type="checkbox" name="data.resources.check1"{{#if data.resources.check1}} checked {{/if}} data-dtype="boolean"/>
-              <input type="checkbox" name="data.resources.check2"{{#if data.resources.check2}} checked {{/if}} data-dtype="boolean"/>
-              <input type="checkbox" name="data.resources.check3"{{#if data.resources.check3}} checked {{/if}} data-dtype="boolean"/>
-            </div>
-            <div class="ability flexrow">
-              <div>
-                <input type="text" name="data.resources.atHand" value="{{data.resources.atHand}}" data-dtype="Number"/>
-                <label class="resource-label rollable flexlarge align-left">At Hand</label>
-              </div>
-              <div>
-                <input type="text" name="data.resources.stowed" value="{{data.resources.stowed}}" data-dtype="Number"/>
-                <label class="resource-label rollable flexlarge align-left">Stowed</label>
-              </div>
-              <div>
-                <input type="text" name="data.resources.inStorage" value="{{data.resources.inStorage}}" data-dtype="Number"/>
-                <label class="resource-label rollable flexlarge align-left">In Storage</label>
-              </div>
-
-            </div>
-          </div>
-
-        </aside>
-
-        {{!-- For the main skills list, span the right two columns --}}
-        <section class="main grid-span-2">
-          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-          {{> "systems/apocthulhu/templates/actor/parts/actor-features.html"}}
-        </section>
-
-      </section>
+      {{> "systems/apocthulhu/templates/actor/parts/actor-skills.html"}}
     </div>
 
     {{!-- Biography Tab --}}

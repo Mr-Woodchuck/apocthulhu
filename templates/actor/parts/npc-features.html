@@ -1,22 +1,18 @@
 <ol class="items-list">
   <li class="item flexrow items-header">
     <div class="item-name">Name</div>
-    <div class="effect-source">Target</div>
-    <div class="effect-duration">Did Fail</div>
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="skill"><i class="fas fa-plus"></i> Add Skill</a>
     </div>
   </li>
   {{#each skills as |item id|}}
     <li class="item flexrow" data-item-id="{{item._id}}">
-      <div class="item-name">
+      <div class="item-name grid-span-2">
         <div class="item-image">
           <a class="rollable" data-roll-type="item"><img class="item-image" src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
         </div>
-        <h4 class="rollable" data-roll-type="item" title="{{item.name}}" title="{{item.name}}">{{item.name}}</h4>
+        <h4 class="rollable" data-roll-type="item" title="{{item.name}}" title="{{item.name}}">{{item.name}} ({{item.data.targetValue}})</h4>
       </div>
-      <div class="effect-source rollable" data-roll-type="item" title="{{item.name}}">{{item.data.targetValue}}</div>
-      <div class="skill-check" data-roll-type="item" title="{{item.name}}"><input type="checkbox" name="data.failed" {{#if item.data.failed}} checked {{/if}} data-dtype="boolean"/></div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
       </div>
