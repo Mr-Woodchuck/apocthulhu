@@ -5,7 +5,7 @@
     use both the "grid" and "grid-Ncol" class where "N" can be any number
     from 1 to 12 and will create that number of columns.  --}}
     <div class="abilities flexcol">
-      <label class="resource-label flexlarge align-center" >Attributes</label>
+      <label class="resource-label flexlarge align-center" >{{localize "apocthulhu.Attributes"}}</label>
 
       {{#each data.abilities as |ability key|}}
 
@@ -17,13 +17,13 @@
 
       {{/each}}
 
-      <label class="resource-label flexlarge align-center" >Resources</label>
+      <label class="resource-label flexlarge align-center" >{{localize "apocthulhu.Resources.Label"}}</label>
       <div class="ability flexrow flex-group-center">
-        <label for="data.resources.value" class="resource-label rollable flexlarge align-left" data-roll="resources" data-label="Resources">Resources</label>
+        <label for="data.resources.value" class="resource-label rollable flexlarge align-left" data-roll="resources" data-label="Resources">{{localize "apocthulhu.Resources.Label"}}</label>
         <input type="text" name="data.resources.value" value="{{data.resources.value}}" data-dtype="Number"/>
         <span class="ability-mod rollable" data-roll="resources" data-label="resources">{{times data.resources.value 5}}</span>
       </div>
-      <label class="resource-label flexlarge align-center" >Resource Checks</label>
+      <label class="resource-label flexlarge align-center" >{{localize "apocthulhu.Resources.Checks"}}</label>
       <div class="ability flexrow flex-group-center">
         <input type="checkbox" name="data.resources.check1"{{#if data.resources.check1}} checked {{/if}} data-dtype="boolean"/>
         <input type="checkbox" name="data.resources.check2"{{#if data.resources.check2}} checked {{/if}} data-dtype="boolean"/>
@@ -32,15 +32,15 @@
       <div class="ability flexrow">
         <div>
           <input type="text" name="data.resources.atHand" value="{{data.resources.atHand}}" data-dtype="Number"/>
-          <label class="resource-label rollable flexlarge align-left">At Hand</label>
+          <label class="resource-label rollable flexlarge align-left">{{localize "apocthulhu.Resources.AtHand"}}</label>
         </div>
         <div>
           <input type="text" name="data.resources.stowed" value="{{data.resources.stowed}}" data-dtype="Number"/>
-          <label class="resource-label rollable flexlarge align-left">Stowed</label>
+          <label class="resource-label rollable flexlarge align-left">{{localize "apocthulhu.Resources.Stowed"}}</label>
         </div>
         <div>
           <input type="text" name="data.resources.inStorage" value="{{data.resources.inStorage}}" data-dtype="Number"/>
-          <label class="resource-label rollable flexlarge align-left">In Storage</label>
+          <label class="resource-label rollable flexlarge align-left">{{localize "apocthulhu.Resources.InStorage"}}</label>
         </div>
 
       </div>

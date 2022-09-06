@@ -1,27 +1,47 @@
 {
-  "apocthulhu.AbilityStr": "Strength",
-  "apocthulhu.AbilityCon": "Constitution",
-  "apocthulhu.AbilityDex": "Dexterity",
-  "apocthulhu.AbilityInt": "Intelligence",
-  "apocthulhu.AbilityPow": "Power",
-  "apocthulhu.AbilityCha": "Charisma",
+  "apocthulhu": {
+    "Attributes": "Attributes",
 
-  "apocthulhu.AbilityStrAbbr": "str",
-  "apocthulhu.AbilityConAbbr": "con",
-  "apocthulhu.AbilityDexAbbr": "dex",
-  "apocthulhu.AbilityIntAbbr": "int",
-  "apocthulhu.AbilityPowAbbr": "pow",
-  "apocthulhu.AbilityChaAbbr": "cha",
+    "AbilityStr": "Strength",
+    "AbilityCon": "Constitution",
+    "AbilityDex": "Dexterity",
+    "AbilityInt": "Intelligence",
+    "AbilityPow": "Power",
+    "AbilityCha": "Charisma",
 
-  "apocthulhu.EffectCreate": "Create Effect",
-  "apocthulhu.EffectToggle": "Toggle Effect",
-  "apocthulhu.EffectEdit": "Edit Effect",
-  "apocthulhu.EffectDelete": "Delete Effect",
+    "AbilityStrAbbr": "str",
+    "AbilityConAbbr": "con",
+    "AbilityDexAbbr": "dex",
+    "AbilityIntAbbr": "int",
+    "AbilityPowAbbr": "pow",
+    "AbilityChaAbbr": "cha",
 
-  "apocthulhu.Add": "Add",
+    "EffectCreate": "Create Effect",
+    "EffectToggle": "Toggle Effect",
+    "EffectEdit": "Edit Effect",
+    "EffectDelete": "Delete Effect",
 
-  "apocthulhu.menu": "Apocthulhu Settings",
-  "apocthulhu.settingsTitle": "Apocthulhu Settings",
-  "apocthulhu.settingsHint": "Apocthulhu System Settings"
+    "Resources": {
+      "Label": "Resources",
+      "Checks": "Resource Checks",
+      "AtHand": "At Hand",
+      "Stowed": "Stowed",
+      "InStorage": "In Storage"
+    },
 
+    "Skills": {
+      "Name": "Name",
+      "Target": "Target",
+      "Fail": "Did Fail",
+      "Add": "Add Skill",
+      "Edit": "Edit Skill",
+      "Delete": "Delete Skill"
+    },
+
+    "Add": "Add",
+
+    "menu": "Apocthulhu Settings",
+    "settingsTitle": "Apocthulhu Settings",
+    "settingsHint": "Apocthulhu System Settings"
+  }
 }
