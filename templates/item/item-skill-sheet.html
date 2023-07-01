@@ -22,24 +22,29 @@
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor
+        enrichedDescription
+        target="system.description"
+        button=true
+        editable=editable
+      }}
     </div>
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
       <label class="resource-label">Target Value</label>
-      <input type="text" name="data.targetValue" value="{{data.targetValue}}" data-dtype="Integer"/>
+      <input type="text" name="system.targetValue" value="{{item.system.targetValue}}" data-dtype="Integer"/>
       <label class="resource-label">Has Failed</label>
-      <input type="checkbox" name="data.failed"{{#if data.failed}} checked {{/if}} data-dtype="boolean"/>
+      <input type="checkbox" name="system.failed"{{#if item.system.failed}} checked {{/if}} data-dtype="boolean"/>
       {{!-- System tools --}}
       {{#if isGM }}
       <br />
       <label class="resource-label">Shows in weapons</label>
-      <input type="checkbox" name="data.showsInWeapons"{{#if data.showsInWeapons}} checked {{/if}} data-dtype="boolean"/>
+      <input type="checkbox" name="system.showsInWeapons"{{#if item.system.showsInWeapons}} checked {{/if}} data-dtype="boolean"/>
       <br />
       <label class="resource-label">Removes max sanity</label>
-      <input type="checkbox" name="data.removesSanity"{{#if data.removesSanity}} checked {{/if}} data-dtype="boolean"/>
+      <input type="checkbox" name="system.removesSanity"{{#if item.system.removesSanity}} checked {{/if}} data-dtype="boolean"/>
       {{/if}}
     </div>
   </section>

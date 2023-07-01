@@ -31,27 +31,26 @@ export class ApocthulhuActor extends Actor {
    * is queried and has a roll executed directly from it).
    */
   prepareDerivedData() {
-    const actorData = this.data;
-    const data = actorData.data;
-    const flags = actorData.flags.apocthulhu || {};
+    const flags = this.flags.apocthulhu || {};
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
+    this._prepareCharacterData();
+    this._prepareNpcData();
   }
 
   /**
    * Prepare Character type specific data
    */
-  _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character' || actorData.type !== 'npc') return;
+  _prepareCharacterData() {
+    const actor = this;
+    if (actor.type !== 'character' || actor.type !== 'npc') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
+    // const data = actorData.data;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(data.abilities)) {
+    for (let [key, ability] of Object.entries(system.abilities)) {
       // Calculate the modifier using d20 rules.
       ability.mod = Math.floor((ability.value - 10) / 2);
     }
@@ -60,12 +59,12 @@ export class ApocthulhuActor extends Actor {
   /**
    * Prepare NPC type specific data.
    */
-  _prepareNpcData(actorData) {
-    if (actorData.type !== 'npc') return;
+  _prepareNpcData() {
+    const actor = this;
+    if (actor.type !== 'npc') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
-    data.xp = (data.cr * data.cr) * 100;
+    actor.xp = (actor.cr * actor.cr) * 100;
   }
 
   /**
@@ -85,27 +84,35 @@ export class ApocthulhuActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.data.type !== 'character') return;
+    if (this.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
-    if (data.abilities) {
-      for (let [k, v] of Object.entries(data.abilities)) {
-        data[k] = foundry.utils.deepClone(v);
+    if (this.abilities) {
+      for (let [k, v] of Object.entries(this.abilities)) {
+        system[k] = foundry.utils.deepClone(v);
       }
     }
 
     // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
+    console.log(this);
+    if (this.system.attributes.level) {
+      this.lvl = this.system.attributes.level.value ?? 0;
     }
+  }
+
+  update(data,context) {
+    console.log(data);
+    console.log(this);
+    console.log(context);
+    return super.update(data,context);
   }
 
   /**
    * Prepare NPC roll data.
    */
   _getNpcRollData(data) {
-    if (this.data.type !== 'npc') return;
+    if (this.type !== 'npc') return;
 
     // Process additional NPC data here.
   }
@@ -127,11 +134,11 @@ export class ApocthulhuActor extends Actor {
           let roll = await new Roll(formula).evaluate({async: true});
 
           let flavor = "";
-          await this.update({ 'data.sanity.value': this.data.data.sanity.value - roll.total });
+          await this.update({ 'system.sanity.value': this.system.sanity.value - roll.total });
 
-          if (this.data.data.sanity.value <= 0) {
+          if (this.system.sanity.value <= 0) {
             flavor = "Sad day, you are insane";
-          } else if (this.data.data.sanity.value <= this.data.data.sanity.breakpoint) {
+          } else if (this.system.sanity.value <= this.system.sanity.breakpoint) {
             flavor = "You have increased in your temporary insanity";
           }
 
@@ -163,8 +170,8 @@ export class ApocthulhuActor extends Actor {
         let roll = await new Roll(formula).evaluate({async: true});
 
         let flavor = "";
-        await this.update({ 'data.sanity.value': this.data.data.sanity.value + roll.total });
-        await this.update({ 'data.sanity.breakpoint': this.data.data.sanity.breakpoint + roll.total });
+        await this.update({ 'system.sanity.value': this.system.sanity.value + roll.total });
+        await this.update({ 'system.sanity.breakpoint': this.system.sanity.breakpoint + roll.total });
 
         // Print Chat
         let chatMessage = await roll.toMessage({
@@ -198,9 +205,9 @@ export class ApocthulhuActor extends Actor {
         })
       };
       buttons.push(setSan("Set Sanity", async (total) => {
-        await this.update({ 'data.sanity.value': total });
+        await this.update({ 'system.sanity.value': total });
       }),setSan("Set Breakpoint", async (total) => {
-        await this.update({ 'data.sanity.breakpoint': total });
+        await this.update({ 'system.sanity.breakpoint': total });
       }));
     }
 
@@ -214,8 +221,9 @@ export class ApocthulhuActor extends Actor {
 
   rollAttributeCallback(attribute, label, callback) {
 
-    let actorAttributes = this.data.data.abilities;
+    let actorAttributes = this.system.abilities;
 
+    console.log(actorAttributes);
     let attributeValue = actorAttributes[attribute].value * 5;
 
     return this.rollWithMod(attribute, label, attributeValue, callback);

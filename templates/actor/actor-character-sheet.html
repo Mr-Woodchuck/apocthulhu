@@ -14,30 +14,30 @@
         and it will add a small amount of padding, a border, and will
         center all of its child elements content and text. --}}
         <div class="resource flex-group-center">
-          <label for="data.health.value" class="resource-label">Health</label>
+          <label for="system.health.value" class="resource-label">Health</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number"/>
+          <input type="text" name="system.health.value" value="{{actor.system.health.value}}" data-dtype="Number"/>
           <span> / </span>
-          <input type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number"/>
+          <input type="text" name="system.health.max" value="{{actor.system.health.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.willpower.value" class="resource-label">Willpower</label>
+          <label for="system.willpower.value" class="resource-label">Willpower</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="data.willpower.value" value="{{data.willpower.value}}" data-dtype="Number"/>
+          <input type="text" name="system.willpower.value" value="{{actor.system.willpower.value}}" data-dtype="Number"/>
           <span> / </span>
-          <input type="text" name="data.willpower.max" value="{{data.willpower.max}}" data-dtype="Number"/>
+          <input type="text" name="system.willpower.max" value="{{actor.system.willpower.max}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="data.sanity.value" class="resource-label">Sanity</label>
+          <label for="system.sanity.value" class="resource-label">Sanity</label>
           {{#if showsSanity}}
           <div class="resource-content flexrow flex-center flex-between">
-            <span>{{data.sanity.value}} / {{maxSanity}}</span>
+            <span>{{actor.system.sanity.value}} / {{maxSanity}}</span>
             <div class="resource-content flexrow flex-center flex-between">
-              Breakpoint: {{data.sanity.breakpoint}}
+              Breakpoint: {{actor.system.sanity.breakpoint}}
             </div>
           </div>
           {{/if}}
@@ -46,17 +46,17 @@
               Violence
             </div>
             <div>
-              <input type="checkbox" name="data.violenceCheck1"{{#if data.violenceCheck1}} checked {{/if}} data-dtype="boolean"/>
-              <input type="checkbox" name="data.violenceCheck2"{{#if data.violenceCheck2}} checked {{/if}} data-dtype="boolean"/>
-              <input type="checkbox" name="data.violenceCheck3"{{#if data.violenceCheck3}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="system.violenceCheck1"{{#if actor.system.violenceCheck1}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="system.violenceCheck2"{{#if actor.system.violenceCheck2}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="system.violenceCheck3"{{#if actor.system.violenceCheck3}} checked {{/if}} data-dtype="boolean"/>
             </div>
             <div>
               Helplessness
             </div>
             <div>
-              <input type="checkbox" name="data.helplessnessCheck1"{{#if data.helplessnessCheck1}} checked {{/if}} data-dtype="boolean"/>
-              <input type="checkbox" name="data.helplessnessCheck2"{{#if data.helplessnessCheck2}} checked {{/if}} data-dtype="boolean"/>
-              <input type="checkbox" name="data.helplessnessCheck3"{{#if data.helplessnessCheck3}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="system.helplessnessCheck1"{{#if actor.system.helplessnessCheck1}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="system.helplessnessCheck2"{{#if actor.system.helplessnessCheck2}} checked {{/if}} data-dtype="boolean"/>
+              <input type="checkbox" name="system.helplessnessCheck3"{{#if actor.system.helplessnessCheck3}} checked {{/if}} data-dtype="boolean"/>
             </div>
           </div>
           <button class="rollable san-adjust">Sanity Adjustment</button>
@@ -90,30 +90,35 @@
       <aside class="sidebar">
           <div>
             <label class="resource-label align-left" >Setting</label>
-            <input type="text" name="data.setting" value="{{data.setting}}" data-dtype="String"/>
+            <input type="text" name="setting" value="{{actor.system.setting}}" data-dtype="String"/>
           </div>
           <div>
             <label class="resource-label align-left" >Archtype</label>
-            <input type="text" name="data.archtype" value="{{data.archtype}}" data-dtype="String"/>
+            <input type="text" name="archtype" value="{{actor.system.archtype}}" data-dtype="String"/>
           </div>
           <div>
             <label class="resource-label align-left" >Age</label>
-            <input type="text" name="data.age" value="{{data.age}}" data-dtype="String"/>
+            <input type="text" name="age" value="{{actor.system.age}}" data-dtype="String"/>
           </div>
           <div>
             <label class="resource-label align-left" >Sex</label>
-            <input type="text" name="data.sex" value="{{data.sex}}" data-dtype="String"/>
+            <input type="text" name="sex" value="{{actor.system.sex}}" data-dtype="String"/>
           </div>
           <div>
             <label class="resource-label align-left" >Home</label>
-            <input type="text" name="data.home" value="{{data.home}}" data-dtype="String"/>
+            <input type="text" name="home" value="{{actor.system.home}}" data-dtype="String"/>
           </div>
           <div>
             <label class="resource-label align-left" >Birthplace</label>
-            <input type="text" name="data.birthplace" value="{{data.birthplace}}" data-dtype="String"/>
+            <input type="text" name="birthplace" value="{{actor.system.birthplace}}" data-dtype="String"/>
           </div>
       </aside>
-      {{editor content=data.biography target="data.biography" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor
+        enrichedBiography
+        target="system.biography"
+        button=true
+        editable=editable
+       }}
     </div>
 
     {{!-- Owned Items Tab --}}

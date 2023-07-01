@@ -7,11 +7,11 @@
     <div class="abilities flexcol">
       <label class="resource-label flexlarge align-center" >Attributes</label>
 
-      {{#each data.abilities as |ability key|}}
+      {{#each actor.system.abilities as |ability key|}}
 
       <div class="ability flexrow flex-group-center">
-        <label for="data.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="{{key}}" data-label="{{ability.label}}">{{ability.label}}</label>
-        <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+        <label for="actor.system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="{{key}}" data-label="{{ability.label}}">{{ability.label}}</label>
+        <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
         <span class="ability-mod rollable" data-roll="{{key}}" data-label="{{ability.label}}">{{times ability.value 5}}</span>
       </div>
 

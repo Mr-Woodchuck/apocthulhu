@@ -20,24 +20,24 @@ export class ApocthulhuActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return `systems/apocthulhu/templates/actor/actor-${this.actor.data.type}-sheet.html`;
+    return `systems/apocthulhu/templates/actor/actor-${this.actor.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
+  async getData(options) {
     // Retrieve the data structure from the base sheet. You can inspect or log
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
     // editable, the items array, and the effects array.
-    const context = super.getData();
+    const context = await super.getData(options);
 
     // Use a safe clone of the actor data for further operations.
-    const actorData = this.actor.data.toObject(false);
+    const actorData = this.actor.toObject(false);
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data;
+    context.actor = actorData;
     context.flags = actorData.flags;
 
     context.maxSanity = 99;
@@ -55,10 +55,13 @@ export class ApocthulhuActorSheet extends ActorSheet {
     }
 
     // Add roll data for TinyMCE editors.
-    context.rollData = context.actor.getRollData();
+    console.log(this.actor);
+    context.rollData = this.actor.getRollData();
 
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(this.actor.effects);
+
+    context.enrichedBiography = await TextEditor.enrichHTML(this.actor.system.biography, {async: true});
 
     context.showsSanity = game.user.isGM || game.settings.get('apocthulhu', 'showsSanity');
 
@@ -74,9 +77,16 @@ export class ApocthulhuActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
     // Handle ability scores.
-    for (let [k, v] of Object.entries(context.data.abilities)) {
+    console.log(context);
+    for (let [k, v] of Object.entries(context.actor.system.abilities)) {
       v.label = game.i18n.localize(CONFIG.apocthulhu.abilities[k]) ?? k;
     }
+  }
+
+  update(data,context) {
+    console.log(data);
+    console.log(context);
+    return super.update(data,context);
   }
 
   /**
@@ -108,7 +118,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
     const motivations = [];
 
     // Iterate through items, allocating to containers
-    for (let i of context.items) {
+    for (let i of context.actor.items) {
       // Append to gear.
       if (i.type === 'item') {
         i.img = i.img || DEFAULT_TOKEN;
@@ -117,8 +127,8 @@ export class ApocthulhuActorSheet extends ActorSheet {
       // Append to skills.
       else if (i.type === 'skill') {
         i.img = i.img || "icons/svg/d20-black.svg";
-        if (i.data.removesSanity == true) {
-          context.maxSanity = context.maxSanity - i.data.targetValue;
+        if (i.system.removesSanity == true) {
+          context.maxSanity = context.maxSanity - i.system.targetValue;
         }
         skills.push(i);
       }
@@ -134,7 +144,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
       }
       // Append to bonds.
       else if (i.type === 'bond') {
-        if (i.data.individual) {
+        if (i.system.individual) {
           bonds.individual.bonds.push(i);
         } else {
           bonds.community.bonds.push(i);
@@ -143,19 +153,19 @@ export class ApocthulhuActorSheet extends ActorSheet {
       // Append to weapons
       else if (i.type === 'weapon') {
         i.img = i.img || "icons/svg/sword.svg";
-        let range = i.data.range;
+        let range = i.range;
         if (range == null) {
           range = "";
         }
 
-        let radius = i.data.radius;
+        let radius = i.radius;
         if (range == null) {
           radius = "";
         }
 
-        let damage = i.data.damage;
+        let damage = i.damage;
         if (damage == "") {
-          let lethality = i.data.lethality;
+          let lethality = i.lethality;
           if (lethality == "") {
             // if it doesn't have damage, or lethality, skip it.
             continue;
@@ -240,7 +250,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
 
-      await item.update({ "data.failed": item.data.data.failed == false });
+      await item.update({ "data.failed": item.failed == false });
     });
 
     // Drag events for macros.
@@ -302,7 +312,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
       img: img
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
+    // delete itemData["type"];
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
@@ -322,13 +332,15 @@ export class ApocthulhuActorSheet extends ActorSheet {
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
+        console.log(this.actor);
         const item = this.actor.items.get(itemId);
+        console.log(item);
         if (item) return item.roll();
       }
     }
 
     if (dataset.roll === "resources") {
-      return this.actor.rollWithMod("Resources", "resources", this.actor.data.data.resources.value * 5, () => {})
+      return this.actor.rollWithMod("Resources", "resources", this.actor.system.resources.value * 5, () => {})
     }
 
     if (dataset.roll) {

@@ -21,27 +21,27 @@ export class ApocthulhuItem extends Item {
     // If present, return the actor's roll data.
     if ( !this.actor ) return null;
     const rollData = this.actor.getRollData();
-    rollData.item = foundry.utils.deepClone(this.data.data);
+    rollData.item = foundry.utils.deepClone(this);
 
     return rollData;
   }
 
   async rollItem(speaker, rollMode, label) {
-    let item = this.data;
+    let item = this;
 
-    if (!item.formula) {
+    if (!item.system.formula) {
       ChatMessage.create({
         speaker: speaker,
         rollMode: rollMode,
         flavor: label,
-        content: item.data.description ?? ''
+        content: item.system.description ?? ''
       });
     }
 
     let rollData = this.getRollData();
 
     // Invoke the roll and submit it to chat.
-    let roll = new Roll(rollData.item.formula, rollData);
+    let roll = new Roll(rollData.item.system.formula, rollData);
     // If you need to store the value first, uncomment the next line.
     // let result = await roll.roll({async: true});
     roll.toMessage({
@@ -54,20 +54,21 @@ export class ApocthulhuItem extends Item {
 
   async rollWeapon(speaker, rollMode, label) {
 
-    let weapon = this.data;
+    let weapon = this;
     console.log(weapon);
-    let skill = this.actor.items.get(weapon.data.associatedSkill);
+    let skill = this.actor.items.get(weapon.system.associatedSkill);
 
+    console.log(skill);
     skill.rollSkill(speaker, rollMode, skill.name, async (success) => {
       if (!success) {
         return;
       }
 
-      let range = weapon.data.range;
-      let radius = weapon.data.radius;
+      let range = weapon.system.range;
+      let radius = weapon.system.radius;
 
-      let damage = weapon.data.damage;
-      let lethality = parseInt(weapon.data.lethality);
+      let damage = weapon.system.damage;
+      let lethality = parseInt(weapon.system.lethality);
 
       let damageRoll = damage;
 
@@ -80,16 +81,16 @@ export class ApocthulhuItem extends Item {
         }
 
         damageRoll = "1d100";
-      } else if (weapon.data.strBonus) {
-        console.log(this.actor.data.data.abilities.str);
+      } else if (weapon.strBonus) {
+        console.log(this.actor.abilities.str);
         let bonus = -2;
-        if (this.actor.data.data.abilities.str.value < 5) {
+        if (this.actor.system.abilities.str.value < 5) {
           bonus = -2;
-        } else if (this.actor.data.data.abilities.str.value < 9) {
+        } else if (this.actor.system.abilities.str.value < 9) {
           bonus = -1;
-        } else if (this.actor.data.data.abilities.str.value < 13) {
+        } else if (this.actor.system.abilities.str.value < 13) {
           bonus = 0;
-        } else if (this.actor.data.data.abilities.str.value < 17) {
+        } else if (this.actor.system.abilities.str.value < 17) {
           bonus = 1;
         } else {
           bonus = 2;
@@ -123,21 +124,15 @@ export class ApocthulhuItem extends Item {
     });
   }
 
-
-  rollSkill(speaker, rollMode, label) {
-    this.rollSkill(speaker, rollMode, label, (success) => { });
-  }
-
   rollSkill(speaker, rollMode, label, callback) {
-
       let rollData = this.getRollData();
 
-      if (this.data.data.targetValue) {
+      if (this.system.targetValue) {
         RollDialog.easyNormalHardMod(label, label, async (html, modAdjustment) => {
           // roll
           let roll = await new Roll("1d100").evaluate({async: true});
 
-          let target = modAdjustment(parseInt(this.data.data.targetValue));
+          let target = modAdjustment(parseInt(this.system.targetValue));
           // Print Chat
             let chatMessage = await roll.toMessage({
               speaker: speaker,
@@ -155,12 +150,12 @@ export class ApocthulhuItem extends Item {
 
         let rollData = this.getRollData();
 
-        if (this.data.data.score) {
+        if (this.system.score) {
           RollDialog.easyNormalHardMod(label, label, async (html, modAdjustment) => {
             // roll
             let roll = await new Roll("1d100").evaluate({async: true});
 
-            let target = modAdjustment(parseInt(this.data.data.score));
+            let target = modAdjustment(parseInt(this.system.score));
             // Print Chat
               let chatMessage = await roll.toMessage({
                 speaker: speaker,
@@ -179,26 +174,27 @@ export class ApocthulhuItem extends Item {
    * @private
    */
   async roll() {
-    const item = this.data;
+    const item = this;
 
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
     const label = `[${item.type}] ${item.name}`;
 
-    switch(this.type) {
+    console.log(item.type);
+    switch(item.type) {
       case "item":
-        return this.rollItem(speaker, rollMode, label);
+        return item.rollItem(speaker, rollMode, label);
       case "weapon":
-        return this.rollWeapon(speaker, rollMode, label);
+        return item.rollWeapon(speaker, rollMode, label);
       case "skill":
-        return this.rollSkill(speaker, rollMode, label);
+        return item.rollSkill(speaker, rollMode, label, (success) => { });
       case "spell":
         ChatMessage.create({
           speaker: speaker,
           rollMode: rollMode,
           flavor: label,
-          content: item.data.description ?? ''
+          content: item.system.description ?? ''
         });
         return;
       case "tome":
@@ -206,7 +202,7 @@ export class ApocthulhuItem extends Item {
           speaker: speaker,
           rollMode: rollMode,
           flavor: label,
-          content: item.data.description ?? ''
+          content: item.system.description ?? ''
         });
         return;
       case "bond":

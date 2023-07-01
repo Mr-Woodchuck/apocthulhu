@@ -22,7 +22,12 @@
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor
+        enrichedDescription
+        target="system.description"
+        button=true
+        editable=editable
+      }}
     </div>
 
     {{!-- Attributes Tab --}}
@@ -30,7 +35,7 @@
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource">
         <label class="resource-label">Study Time</label>
-        <input type="text" name="data.studyTime" value="{{data.studyTime}}" data-dtype="String"/>
+        <input type="text" name="system.studyTime" value="{{item.system.studyTime}}" data-dtype="String"/>
       </div>
     </div>
   </section>

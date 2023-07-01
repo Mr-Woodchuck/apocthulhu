@@ -22,7 +22,7 @@ export class ApocthulhuItemSheet extends ItemSheet {
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    return `${path}/item-${this.item.data.type}-sheet.html`;
+    return `${path}/item-${this.item.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
@@ -33,13 +33,13 @@ export class ApocthulhuItemSheet extends ItemSheet {
     const context = super.getData();
 
     // Use a safe clone of the item data for further operations.
-    const itemData = context.item.data;
+    const itemData = context.item;
 
     let skillList = [];
 
-    for (let item of this.actor.data.items) {
-      if (item.type === "skill" && item.data.data.showsInWeapons) {
-        if (itemData.data.associatedSkill === item.data._id) {
+    for (let item of this.actor.items) {
+      if (item.type === "skill" && item.system.showsInWeapons) {
+        if (itemData.system.associatedSkill === item._id) {
           item.selected = true;
         } else {
           item.selected = false;
@@ -48,7 +48,8 @@ export class ApocthulhuItemSheet extends ItemSheet {
       }
     }
 
-    console.log(itemData.data.associatedSkill);
+    console.log("This is here a weapon list");
+    console.log(itemData.system.associatedSkill);
     console.log(skillList);
     context.weaponSkillList = skillList;
 
@@ -59,12 +60,15 @@ export class ApocthulhuItemSheet extends ItemSheet {
       context.rollData = actor.getRollData();
     }
 
-    // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = itemData.data;
+    // Add the actor's data to context.item for easier access, as well as flags.
+    context.item = itemData;
     context.flags = itemData.flags;
+
+    context.enrichedDescription = itemData.system.description;
 
     context.isGM = game.user.isGM;
 
+    console.log(context);
     return context;
   }
 

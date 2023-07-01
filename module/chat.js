@@ -55,7 +55,7 @@ export async function formatRoll(
     }
   };
 
-  const roll = Roll.fromJSON(data.message.roll);
+  const roll = Roll.fromJSON(data.message.rolls);
   const chatData = { dice: [], result: 0 };
 
   console.log(roll.terms);
