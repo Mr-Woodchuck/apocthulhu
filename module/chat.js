@@ -58,7 +58,6 @@ export async function formatRoll(
   const roll = Roll.fromJSON(data.message.rolls);
   const chatData = { dice: [], result: 0 };
 
-  console.log(roll.terms);
   for (const term of roll.terms) {
     if (term instanceof Die) {
       // Grab the right dice

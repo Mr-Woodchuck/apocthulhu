@@ -55,10 +55,8 @@ export class ApocthulhuItem extends Item {
   async rollWeapon(speaker, rollMode, label) {
 
     let weapon = this;
-    console.log(weapon);
     let skill = this.actor.items.get(weapon.system.associatedSkill);
 
-    console.log(skill);
     skill.rollSkill(speaker, rollMode, skill.name, async (success) => {
       if (!success) {
         return;
@@ -82,7 +80,6 @@ export class ApocthulhuItem extends Item {
 
         damageRoll = "1d100";
       } else if (weapon.strBonus) {
-        console.log(this.actor.abilities.str);
         let bonus = -2;
         if (this.actor.system.abilities.str.value < 5) {
           bonus = -2;
@@ -181,7 +178,6 @@ export class ApocthulhuItem extends Item {
     const rollMode = game.settings.get('core', 'rollMode');
     const label = `[${item.type}] ${item.name}`;
 
-    console.log(item.type);
     switch(item.type) {
       case "item":
         return item.rollItem(speaker, rollMode, label);

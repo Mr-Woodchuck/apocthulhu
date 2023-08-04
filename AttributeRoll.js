@@ -9,7 +9,6 @@ async function main(){
   let selected_actor = selected[0].actor;
 
   let actorAttributes = selected_actor.data.data.attributes.Attributes;
-  console.log(actorAttributes);
   let attributeOptions = ""
   Object.keys(actorAttributes).forEach(function (key) {
     var value = actorAttributes[key];

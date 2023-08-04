@@ -55,7 +55,6 @@ export class ApocthulhuActorSheet extends ActorSheet {
     }
 
     // Add roll data for TinyMCE editors.
-    console.log(this.actor);
     context.rollData = this.actor.getRollData();
 
     // Prepare active effects
@@ -77,15 +76,12 @@ export class ApocthulhuActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
     // Handle ability scores.
-    console.log(context);
     for (let [k, v] of Object.entries(context.actor.system.abilities)) {
       v.label = game.i18n.localize(CONFIG.apocthulhu.abilities[k]) ?? k;
     }
   }
 
   update(data,context) {
-    console.log(data);
-    console.log(context);
     return super.update(data,context);
   }
 
@@ -135,8 +131,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
       // Append to spells.
       else if (i.type === 'spell') {
         i.img = i.img || "icons/svg/explosion.svg";
-        console.log(i);
-          spells.push(i);
+        spells.push(i);
       }
       else if (i.type === 'tome') {
         i.img = i.img || "icons/svg/book.svg";
@@ -250,7 +245,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
 
-      await item.update({ "data.failed": item.failed == false });
+      await item.update({ "system.failed": item.system.failed == false });
     });
 
     // Drag events for macros.
@@ -332,9 +327,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
-        console.log(this.actor);
         const item = this.actor.items.get(itemId);
-        console.log(item);
         if (item) return item.roll();
       }
     }

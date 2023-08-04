@@ -48,9 +48,6 @@ export class ApocthulhuItemSheet extends ItemSheet {
       }
     }
 
-    console.log("This is here a weapon list");
-    console.log(itemData.system.associatedSkill);
-    console.log(skillList);
     context.weaponSkillList = skillList;
 
     // Retrieve the roll data for TinyMCE editors.
@@ -68,7 +65,6 @@ export class ApocthulhuItemSheet extends ItemSheet {
 
     context.isGM = game.user.isGM;
 
-    console.log(context);
     return context;
   }
 

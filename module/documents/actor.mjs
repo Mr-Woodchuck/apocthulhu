@@ -95,16 +95,12 @@ export class ApocthulhuActor extends Actor {
     }
 
     // Add level for easier access, or fall back to 0.
-    console.log(this);
     if (this.system.attributes.level) {
       this.lvl = this.system.attributes.level.value ?? 0;
     }
   }
 
   update(data,context) {
-    console.log(data);
-    console.log(this);
-    console.log(context);
     return super.update(data,context);
   }
 
@@ -118,7 +114,6 @@ export class ApocthulhuActor extends Actor {
   }
 
   takeSanDmg(html) {
-    console.log("Taking Sanity Damage");
     this.rollAttributeCallback('con', 'Constitution save for Sanity', (success) => {
 
       let dialogTemplate = `
@@ -223,7 +218,6 @@ export class ApocthulhuActor extends Actor {
 
     let actorAttributes = this.system.abilities;
 
-    console.log(actorAttributes);
     let attributeValue = actorAttributes[attribute].value * 5;
 
     return this.rollWithMod(attribute, label, attributeValue, callback);
