@@ -10,8 +10,8 @@
       {{#each actor.system.abilities as |ability key|}}
 
       <div class="ability flexrow flex-group-center">
-        <label for="actor.system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="{{key}}" data-label="{{ability.label}}">{{ability.label}}</label>
-        <input type="text" name="actor.system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+        <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="{{key}}" data-label="{{ability.label}}">{{ability.label}}</label>
+        <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
         <span class="ability-mod rollable" data-roll="{{key}}" data-label="{{ability.label}}">{{times ability.value 5}}</span>
       </div>
 
@@ -19,27 +19,27 @@
 
       <label class="resource-label flexlarge align-center" >{{localize "apocthulhu.Resources.Label"}}</label>
       <div class="ability flexrow flex-group-center">
-        <label for="actor.system.resources.value" class="resource-label rollable flexlarge align-left" data-roll="resources" data-label="Resources">{{localize "apocthulhu.Resources.Label"}}</label>
-        <input type="text" name="actor.system.resources.value" value="{{actor.system.resources.value}}" data-dtype="Number"/>
+        <label for="system.resources.value" class="resource-label rollable flexlarge align-left" data-roll="resources" data-label="Resources">{{localize "apocthulhu.Resources.Label"}}</label>
+        <input type="text" name="system.resources.value" value="{{actor.system.resources.value}}" data-dtype="Number"/>
         <span class="ability-mod rollable" data-roll="resources" data-label="resources">{{times actor.system.resources.value 5}}</span>
       </div>
       <label class="resource-label flexlarge align-center" >{{localize "apocthulhu.Resources.Checks"}}</label>
       <div class="ability flexrow flex-group-center">
-        <input type="checkbox" name="actor.system.resources.check1"{{#if actor.system.resources.check1}} checked {{/if}} data-dtype="boolean"/>
-        <input type="checkbox" name="actor.system.resources.check2"{{#if actor.system.resources.check2}} checked {{/if}} data-dtype="boolean"/>
-        <input type="checkbox" name="actor.system.resources.check3"{{#if actor.system.resources.check3}} checked {{/if}} data-dtype="boolean"/>
+        <input type="checkbox" name="system.resources.check1"{{#if actor.system.resources.check1}} checked {{/if}} data-dtype="boolean"/>
+        <input type="checkbox" name="system.resources.check2"{{#if actor.system.resources.check2}} checked {{/if}} data-dtype="boolean"/>
+        <input type="checkbox" name="system.resources.check3"{{#if actor.system.resources.check3}} checked {{/if}} data-dtype="boolean"/>
       </div>
       <div class="ability flexrow">
         <div>
-          <input type="text" name="actor.system.resources.atHand" value="{{actor.system.resources.atHand}}" data-dtype="Number"/>
+          <input type="text" name="system.resources.atHand" value="{{actor.system.resources.atHand}}" data-dtype="Number"/>
           <label class="resource-label rollable flexlarge align-left">{{localize "apocthulhu.Resources.AtHand"}}</label>
         </div>
         <div>
-          <input type="text" name="actor.system.resources.stowed" value="{{actor.system.resources.stowed}}" data-dtype="Number"/>
+          <input type="text" name="system.resources.stowed" value="{{actor.system.resources.stowed}}" data-dtype="Number"/>
           <label class="resource-label rollable flexlarge align-left">{{localize "apocthulhu.Resources.Stowed"}}</label>
         </div>
         <div>
-          <input type="text" name="actor.system.resources.inStorage" value="{{actor.system.resources.inStorage}}" data-dtype="Number"/>
+          <input type="text" name="system.resources.inStorage" value="{{actor.system.resources.inStorage}}" data-dtype="Number"/>
           <label class="resource-label rollable flexlarge align-left">{{localize "apocthulhu.Resources.InStorage"}}</label>
         </div>
 
