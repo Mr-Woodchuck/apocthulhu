@@ -148,17 +148,17 @@ export class ApocthulhuActorSheet extends ActorSheet {
       // Append to weapons
       else if (i.type === 'weapon') {
         i.img = i.img || "icons/svg/sword.svg";
-        let range = i.range;
+        let range = i.system.range;
         if (range == null) {
           range = "";
         }
 
-        let radius = i.radius;
-        if (range == null) {
+        let radius = i.system.radius;
+        if (radius == null) {
           radius = "";
         }
 
-        let damage = i.damage;
+        let damage = i.system.damage;
         if (damage == "") {
           let lethality = i.lethality;
           if (lethality == "") {
