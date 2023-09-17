@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "CSS compiler for the apocthulhu system",
   "scripts": {
-    "build": "gulp build",
-    "compile": "gulp css",
-    "watch": "gulp",
-    "gulp": "gulp"
+    "compile:sass": "node-sass scss/apocthulhu.scss css/apocthulhu.css"
   },
   "browserslist": [
     "last 3 versions"
@@ -15,11 +12,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-cli": "^2.3.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "node-sass": "^7.0.1"
+    "node-sass": "^9.0.0"
   }
 }

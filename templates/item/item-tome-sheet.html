@@ -1,12 +1,10 @@
 <form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header" data-item-id='{{item.id}}'>
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
       <div class='item-controls'>
-        <a class='item-control item-delete' title='Delete'><i
-            class='fas fa-trash fa-2x'
-          ></i></a>
+        <a class='item-control item-delete' title='Delete'><i class='fas fa-trash fa-2x'></i></a>
       </div>
     </div>
   </header>
@@ -23,10 +21,10 @@
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
       {{editor
-        enrichedDescription
-        target="system.description"
-        button=true
-        editable=editable
+      enrichedDescription
+      target="system.description"
+      button=true
+      editable=editable
       }}
     </div>
 
@@ -35,7 +33,7 @@
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource">
         <label class="resource-label">Study Time</label>
-        <input type="text" name="system.studyTime" value="{{item.system.studyTime}}" data-dtype="String"/>
+        <input type="text" name="system.studyTime" value="{{item.system.studyTime}}" data-dtype="String" />
       </div>
     </div>
   </section>
