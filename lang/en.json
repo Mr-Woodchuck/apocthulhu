@@ -21,6 +21,18 @@
     "EffectEdit": "Edit Effect",
     "EffectDelete": "Delete Effect",
 
+    "Item": {
+      "Add": "Add Item",
+      "Attributes": "Attributes",
+      "Delete": "Delete Item",
+      "Description": "Description",
+      "Edit": "Edit Item",
+      "Name": "Item Name",
+      "Quantity": "Quantity",
+      "Quality": "Quality",
+      "Roll": "Roll Formula"
+    },
+
     "Resources": {
       "Label": "Resources",
       "Checks": "Resource Checks",

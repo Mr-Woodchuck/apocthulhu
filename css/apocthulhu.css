@@ -226,6 +226,8 @@
     background: #fff; }
   .apocthulhu .tox .tox-edit-area {
     padding: 0 8px; }
+  .apocthulhu .sheet > * {
+    display: flex; }
   .apocthulhu .resource-label {
     font-weight: bold; }
   .apocthulhu .items-header {
@@ -320,6 +322,40 @@
     font-size: 12px; }
   .apocthulhu .effects .item .effect-controls {
     border: none; }
+
+ol {
+  display: block; }
+
+li {
+  display: list-item; }
+
+.row-wrapper {
+  display: grid;
+  column-gap: .1rem;
+  align-items: center;
+  line-height: 30px; }
+  .row-wrapper .item-row {
+    grid-template-columns: 32px 3fr 1fr 1fr 2fr 80px; }
+    .row-wrapper .item-row .img {
+      grid-column: 1;
+      max-width: 28px; }
+    .row-wrapper .item-row .name {
+      grid-column: 2; }
+    .row-wrapper .item-row .quality {
+      grid-column: 3; }
+    .row-wrapper .item-row .quantity {
+      grid-column: 4; }
+    .row-wrapper .item-row .roll {
+      grid-column: 5; }
+    .row-wrapper .item-row .controls {
+      grid-column: 6;
+      display: flex;
+      flex: 0 0 100px;
+      justify-content: flex-end; }
+      .row-wrapper .item-row .controls a {
+        font-size: 12px;
+        text-align: center;
+        margin: 0 6px; }
 
 .star {
   width: 50px;
