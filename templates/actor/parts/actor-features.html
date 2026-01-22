@@ -1,23 +1,23 @@
-<ol class="items-list">
-  <li class="item flexrow items-header">
-    <div class="item-name">{{localize "apocthulhu.Skills.Name"}}</div>
-    <div class="effect-source">{{localize "apocthulhu.Skills.Target"}}</div>
-    <div class="effect-duration">{{localize "apocthulhu.Skills.Fail"}}</div>
-    <div class="item-controls">
-      <a class="item-control item-create" title="{{localize "apocthulhu.Skills.Add"}}" data-type="skill"><i class="fas fa-plus"></i> {{localize "apocthulhu.Skills.Add"}}</a>
+<ol class="skills-list">
+  <li class="skill flexrow skills-header">
+    <div class="skill-name">{{localize "apocthulhu.Skills.Name"}}</div>
+    <div class="skill-target">{{localize "apocthulhu.Skills.Target"}}</div>
+    <div class="skill-fail">{{localize "apocthulhu.Skills.Fail"}}</div>
+    <div class="skill-controls">
+      <a class="skill-control skill-create" title="{{localize "apocthulhu.Skills.Add"}}" data-type="skill"><i class="fas fa-plus"></i> {{localize "apocthulhu.Skills.Add"}}</a>
     </div>
   </li>
-  {{#each skills as |item id|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-      <div class="item-name">
-        <div class="item-image">
-          <a class="rollable" data-roll-type="item"><img class="item-image" src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
+  {{#each skills as |skill id|}}
+    <li class="skill flexrow" data-item-id="{{skill._id}}">
+      <div class="skill-name">
+        <div class="skill-image">
+          <a class="rollable" data-roll-type="item"><img class="skill-image" src="{{skill.img}}" title="{{skill.name}}"/></a>
         </div>
-        <h4 class="rollable" data-roll-type="item" title="{{item.name}}" title="{{item.name}}">{{item.name}}</h4>
+        <h4 class="rollable" data-roll-type="item" title="{{skill.name}}" title="{{skill.name}}">{{skill.name}}</h4>
       </div>
-      <div class="effect-source rollable" data-roll-type="item" title="{{item.name}}">{{item.system.targetValue}}</div>
-      <div class="skill-check" data-roll-type="item" title="{{item.name}}"><input type="checkbox" name="items['{{item._id}}'].system.failed" title="{{localize "apocthulhu.Skills.Fail"}} {{item.name}}" {{#if item.system.failed}} checked {{/if}} data-dtype="boolean"/></div>
-      <div class="item-controls">
+      <div class="skill-target rollable" data-roll-type="item" title="{{skill.name}}">{{skill.system.targetValue}}</div>
+      <div class="skill-fail" data-roll-type="item" title="{{skill.name}}"><input type="checkbox" name="items['{{skill._id}}'].system.failed" title="{{localize "apocthulhu.Skills.Fail"}} {{skill.name}}" {{#if skill.system.failed}} checked {{/if}} data-dtype="boolean"/></div>
+      <div class="skill-controls">
         <a class="item-control item-edit" title='{{localize "apocthulhu.Skills.Edit"}}'><i class="fas fa-edit"></i></a>
       </div>
     </li>

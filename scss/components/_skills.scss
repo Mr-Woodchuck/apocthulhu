@@ -2,7 +2,8 @@
 @use '../utils/variables' as variables;
 
 // Section Header
-.items-header {
+.skills-header {
+  grid-template-columns: 3fr 1fr 1fr 1fr;
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -14,11 +15,30 @@
     font-size: 14px;
     text-align: left;
   }
-  .item-name {
+  .skill-name {
+    grid-column: 1;
     font-weight: bold;
     padding-left: 5px;
     text-align: left;
-    grid-column: 4 / span 3;
+  }
+  .skill-target {
+    grid-column: 2;
+    font-weight: bold;
+    padding-left: 5px;
+    text-align: left;
+  }
+  .skill-fail {
+    font-weight: bold;
+    padding-left: 5px;
+    text-align: left;
+    grid-column: 3;
+  }
+  .skill-controls {
+    font-weight: bold;
+    padding-left: 5px;
+    text-align: right;
+    align-items: right;
+    grid-column: -1;
   }
 }
 
@@ -26,7 +46,7 @@
 /*  Items Lists                              */
 /* ----------------------------------------- */
 
-.items-list {
+.skills-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -34,16 +54,9 @@
   scrollbar-width: thin;
   color: colors.$c-tan;
 
-  // Child lists
-  .item-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
   // Item Name
-  .item-name {
-    flex: 2;
+  .skill-name {
+    grid-column: 1;
     margin: 0;
     overflow: hidden;
     font-size: 13px;
@@ -55,10 +68,28 @@
       overflow-x: hidden;
     }
   }
+  .skill-target {
+    grid-column: 2;
+    margin: 0;
+    overflow: hidden;
+    font-size: 13px;
+    padding-left: 5px;
+    text-align: left;
+  }
+  .skill-fail {
+    grid-column: 1;
+    margin: 0;
+    overflow: hidden;
+    font-size: 13px;
+    padding-left: 5px;
+    text-align: left;
+    grid-column: 3;
+  }
 
   // Control Buttons
-  .item-controls {
+  .skill-controls {
     justify-items: end;
+    grid-column: -1;
     a {
       font-size: 12px;
       text-align: right;
@@ -66,15 +97,17 @@
     }
   }
 
-  // Individual Item
-  .item {
+  // Individual Skill
+  .skill {
+    grid-template-columns: 3fr 1fr 1fr 1fr;
     align-items: left;
     padding: 0 2px; // to align with the header border
     border-bottom: 1px solid colors.$c-faint;
     &:last-child { border-bottom: none; }
-    .item-name {
+    .skill-name {
+        display: flex;
       color: colors.$c-dark;
-      .item-image {
+      .skill-image {
         flex: 0 0 30px;
         height: 30px;
         background-size: 30px;
@@ -84,36 +117,4 @@
     }
   }
 
-  .item-prop {
-    text-align: left;
-    border-left: 1px solid #c9c7b8;
-    border-right: 1px solid #c9c7b8;
-    font-size: 12px;
-  }
-
-  // Section Header
-  .items-header {
-    height: 28px;
-    margin: 2px 0;
-    padding: 0;
-    align-items: left;
-    background: rgba(0, 0, 0, 0.05);
-    border: variables.$border-groove;
-    font-weight: bold;
-    > * {
-      font-size: 12px;
-      text-align: left;
-    }
-    .item-name {
-      padding-left: 5px;
-      text-align: left;
-      // font-size: 16px;
-    }
-  }
-}
-
-/* Example style for apocthulhu (can be removed if not needed) */
-.item-formula {
-  flex: 0 0 200px;
-  padding: 0 8px;
 }

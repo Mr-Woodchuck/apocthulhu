@@ -1,367 +1,564 @@
+/* Styles limited to apocthulhu sheets */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-/* Global styles */
-.window-app {
-  font-family: "Roboto", sans-serif; }
+ol {
+  display: grid;
+}
 
+li {
+  display: grid;
+}
+
+.row-wrapper {
+  display: grid;
+  column-gap: 0.1rem;
+  align-items: center;
+  line-height: 30px;
+}
+.row-wrapper .item-row {
+  grid-template-columns: 32px 3fr 1fr 1fr 2fr 80px;
+}
+.row-wrapper .item-row .img {
+  grid-column: 1;
+  max-width: 28px;
+}
+.row-wrapper .item-row .name {
+  grid-column: 2;
+}
+.row-wrapper .item-row .quality {
+  grid-column: 3;
+}
+.row-wrapper .item-row .quantity {
+  grid-column: 4;
+}
+.row-wrapper .item-row .roll {
+  grid-column: 5;
+}
+.row-wrapper .item-row .controls {
+  grid-column: 6;
+  display: flex;
+  flex: 0 0 100px;
+  justify-content: flex-end;
+}
+.row-wrapper .item-row .controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+
+/* Global styles */
 .rollable:hover, .rollable:focus {
   color: #000;
   text-shadow: 0 0 10px #D90101;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .grid,
 .grid-2col {
   display: grid;
-  grid-column: span 2 / span 2;
+  grid-column: span 2/span 2;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin: 10px 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .grid-3col {
-  grid-column: span 3 / span 3;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  grid-column: span 3/span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
 .grid-4col {
-  grid-column: span 4 / span 4;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  grid-column: span 4/span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 
 .grid-5col {
-  grid-column: span 5 / span 5;
-  grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  grid-column: span 5/span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
 
 .grid-6col {
-  grid-column: span 6 / span 6;
-  grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  grid-column: span 6/span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
 
 .grid-7col {
-  grid-column: span 7 / span 7;
-  grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  grid-column: span 7/span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
 
 .grid-8col {
-  grid-column: span 8 / span 8;
-  grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  grid-column: span 8/span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
 
 .grid-9col {
-  grid-column: span 9 / span 9;
-  grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  grid-column: span 9/span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
 
 .grid-10col {
-  grid-column: span 10 / span 10;
-  grid-template-columns: repeat(10, minmax(0, 1fr)); }
+  grid-column: span 10/span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
 
 .grid-11col {
-  grid-column: span 11 / span 11;
-  grid-template-columns: repeat(11, minmax(0, 1fr)); }
+  grid-column: span 11/span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
 
 .grid-12col {
-  grid-column: span 12 / span 12;
-  grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  grid-column: span 12/span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
 
 .grid-start-2 {
-  grid-column-start: 2; }
+  grid-column-start: 2;
+}
 
 .grid-start-3 {
-  grid-column-start: 3; }
+  grid-column-start: 3;
+}
 
 .grid-start-4 {
-  grid-column-start: 4; }
+  grid-column-start: 4;
+}
 
 .grid-start-5 {
-  grid-column-start: 5; }
+  grid-column-start: 5;
+}
 
 .grid-start-6 {
-  grid-column-start: 6; }
+  grid-column-start: 6;
+}
 
 .grid-start-7 {
-  grid-column-start: 7; }
+  grid-column-start: 7;
+}
 
 .grid-start-8 {
-  grid-column-start: 8; }
+  grid-column-start: 8;
+}
 
 .grid-start-9 {
-  grid-column-start: 9; }
+  grid-column-start: 9;
+}
 
 .grid-start-10 {
-  grid-column-start: 10; }
+  grid-column-start: 10;
+}
 
 .grid-start-11 {
-  grid-column-start: 11; }
+  grid-column-start: 11;
+}
 
 .grid-start-12 {
-  grid-column-start: 12; }
+  grid-column-start: 12;
+}
 
 .grid-span-2 {
-  grid-column-end: span 2; }
+  grid-column-end: span 2;
+}
 
 .grid-span-3 {
-  grid-column-end: span 3; }
+  grid-column-end: span 3;
+}
 
 .grid-span-4 {
-  grid-column-end: span 4; }
+  grid-column-end: span 4;
+}
 
 .grid-span-5 {
-  grid-column-end: span 5; }
+  grid-column-end: span 5;
+}
 
 .grid-span-6 {
-  grid-column-end: span 6; }
+  grid-column-end: span 6;
+}
 
 .grid-span-7 {
-  grid-column-end: span 7; }
+  grid-column-end: span 7;
+}
 
 .grid-span-8 {
-  grid-column-end: span 8; }
+  grid-column-end: span 8;
+}
 
 .grid-span-9 {
-  grid-column-end: span 9; }
+  grid-column-end: span 9;
+}
 
 .grid-span-10 {
-  grid-column-end: span 10; }
+  grid-column-end: span 10;
+}
 
 .grid-span-11 {
-  grid-column-end: span 11; }
+  grid-column-end: span 11;
+}
 
 .grid-span-12 {
-  grid-column-end: span 12; }
+  grid-column-end: span 12;
+}
 
 .flex-group-center,
 .flex-group-left,
 .flex-group-right {
   justify-content: center;
   align-items: center;
-  text-align: center; }
+  text-align: center;
+}
 
 .flex-group-left {
   justify-content: flex-start;
-  text-align: left; }
+  text-align: left;
+}
 
 .flex-group-right {
   justify-content: flex-end;
-  text-align: right; }
+  text-align: right;
+}
 
 .flexshrink {
-  flex: 0; }
+  flex: 0;
+}
 
 .flex-between {
-  justify-content: space-between; }
+  justify-content: space-between;
+}
 
 .flexlarge {
-  flex: 2; }
+  flex: 2;
+}
 
 .align-left {
   justify-content: flex-start;
-  text-align: left; }
+  text-align: left;
+}
 
 .align-right {
   justify-content: flex-end;
-  text-align: right; }
+  text-align: right;
+}
 
 .align-center {
   justify-content: center;
-  text-align: center; }
+  text-align: center;
+}
 
 .dice-roll .dice-result .dice-formula,
 .dice-roll .dice-result .dice-total {
-  height: 30px; }
-  .dice-roll .dice-result .dice-formula .dice,
-  .dice-roll .dice-result .dice-total .dice {
-    margin: 2px;
-    display: inline-flex;
-    width: 25px;
-    height: 25px; }
-    .dice-roll .dice-result .dice-formula .dice label,
-    .dice-roll .dice-result .dice-total .dice label {
-      font-weight: bold;
-      text-align: center;
-      width: 100%;
-      z-index: 1; }
-    .dice-roll .dice-result .dice-formula .dice img,
-    .dice-roll .dice-result .dice-total .dice img {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      border: none; }
-  .dice-roll .dice-result .dice-formula .modifier,
-  .dice-roll .dice-result .dice-total .modifier {
-    margin: 2px;
-    display: inline-flex; }
+  height: 30px;
+}
+.dice-roll .dice-result .dice-formula .dice,
+.dice-roll .dice-result .dice-total .dice {
+  margin: 2px;
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+}
+.dice-roll .dice-result .dice-formula .dice label,
+.dice-roll .dice-result .dice-total .dice label {
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+.dice-roll .dice-result .dice-formula .dice img,
+.dice-roll .dice-result .dice-total .dice img {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: none;
+}
+.dice-roll .dice-result .dice-formula .modifier,
+.dice-roll .dice-result .dice-total .modifier {
+  margin: 2px;
+  display: inline-flex;
+}
 
-/* Styles limited to apocthulhu sheets */
+.apocthulhu .sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.apocthulhu .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+.apocthulhu .sheet-header .header-fields {
+  flex: 1;
+}
+.apocthulhu .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.apocthulhu .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.apocthulhu .sheet-tabs {
+  flex: 0;
+}
+.apocthulhu .sheet-body,
+.apocthulhu .sheet-body .tab,
+.apocthulhu .sheet-body .tab .editor {
+  height: 100%;
+}
+.apocthulhu .tox .tox-editor-container {
+  background: #fff;
+}
+.apocthulhu .tox .tox-edit-area {
+  padding: 0 8px;
+}
+.apocthulhu .sheet > * {
+  display: flex;
+}
+.apocthulhu .resource-label {
+  font-weight: bold;
+}
+.apocthulhu .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: left;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.apocthulhu .items-header > * {
+  font-size: 14px;
+  text-align: left;
+}
+.apocthulhu .items-header .item-name {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  grid-column: 4/span 3;
+}
 .apocthulhu {
   /* ----------------------------------------- */
   /*  Items Lists                              */
   /* ----------------------------------------- */
-  /* Example style for apocthulhu (can be removed if not needed) */ }
-  .apocthulhu .item-form {
-    font-family: "Roboto", sans-serif; }
-  .apocthulhu .sheet-header {
-    flex: 0 auto;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-bottom: 10px; }
-    .apocthulhu .sheet-header .profile-img {
-      flex: 0 0 100px;
-      height: 100px;
-      margin-right: 10px; }
-    .apocthulhu .sheet-header .header-fields {
-      flex: 1; }
-    .apocthulhu .sheet-header h1.charname {
-      height: 50px;
-      padding: 0px;
-      margin: 5px 0;
-      border-bottom: 0; }
-      .apocthulhu .sheet-header h1.charname input {
-        width: 100%;
-        height: 100%;
-        margin: 0; }
-  .apocthulhu .sheet-tabs {
-    flex: 0; }
-  .apocthulhu .sheet-body,
-  .apocthulhu .sheet-body .tab,
-  .apocthulhu .sheet-body .tab .editor {
-    height: 100%; }
-  .apocthulhu .tox .tox-editor-container {
-    background: #fff; }
-  .apocthulhu .tox .tox-edit-area {
-    padding: 0 8px; }
-  .apocthulhu .sheet > * {
-    display: flex; }
-  .apocthulhu .resource-label {
-    font-weight: bold; }
-  .apocthulhu .items-header {
-    height: 28px;
-    margin: 2px 0;
-    padding: 0;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.05);
-    border: 2px groove #eeede0;
-    font-weight: bold; }
-    .apocthulhu .items-header > * {
-      font-size: 14px;
-      text-align: center; }
-    .apocthulhu .items-header .item-name {
-      font-weight: bold;
-      padding-left: 5px;
-      text-align: left;
-      display: flex; }
-  .apocthulhu .items-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    color: #444; }
-    .apocthulhu .items-list .item-list {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-    .apocthulhu .items-list .item-name {
-      flex: 2;
-      margin: 0;
-      overflow: hidden;
-      font-size: 13px;
-      text-align: left;
-      align-items: center;
-      display: flex; }
-      .apocthulhu .items-list .item-name h3, .apocthulhu .items-list .item-name h4 {
-        margin: 0;
-        white-space: nowrap;
-        overflow-x: hidden; }
-    .apocthulhu .items-list .item-controls {
-      display: flex;
-      flex: 0 0 100px;
-      justify-content: flex-end; }
-      .apocthulhu .items-list .item-controls a {
-        font-size: 12px;
-        text-align: center;
-        margin: 0 6px; }
-    .apocthulhu .items-list .item {
-      align-items: center;
-      padding: 0 2px;
-      border-bottom: 1px solid #c9c7b8; }
-      .apocthulhu .items-list .item:last-child {
-        border-bottom: none; }
-      .apocthulhu .items-list .item .item-name {
-        color: #191813; }
-        .apocthulhu .items-list .item .item-name .item-image {
-          flex: 0 0 30px;
-          height: 30px;
-          background-size: 30px;
-          border: none;
-          margin-right: 5px; }
-    .apocthulhu .items-list .item-prop {
-      text-align: center;
-      border-left: 1px solid #c9c7b8;
-      border-right: 1px solid #c9c7b8;
-      font-size: 12px; }
-    .apocthulhu .items-list .items-header {
-      height: 28px;
-      margin: 2px 0;
-      padding: 0;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.05);
-      border: 2px groove #eeede0;
-      font-weight: bold; }
-      .apocthulhu .items-list .items-header > * {
-        font-size: 12px;
-        text-align: center; }
-      .apocthulhu .items-list .items-header .item-name {
-        padding-left: 5px;
-        text-align: left; }
-  .apocthulhu .item-formula {
-    flex: 0 0 200px;
-    padding: 0 8px; }
-  .apocthulhu .effects .item .effect-source,
-  .apocthulhu .effects .item .effect-duration,
-  .apocthulhu .effects .item .effect-controls {
-    text-align: center;
-    border-left: 1px solid #c9c7b8;
-    border-right: 1px solid #c9c7b8;
-    font-size: 12px; }
-  .apocthulhu .effects .item .effect-controls {
-    border: none; }
-
-ol {
-  display: block; }
-
-li {
-  display: list-item; }
-
-.row-wrapper {
-  display: grid;
-  column-gap: .1rem;
-  align-items: center;
-  line-height: 30px; }
-  .row-wrapper .item-row {
-    grid-template-columns: 32px 3fr 1fr 1fr 2fr 80px; }
-    .row-wrapper .item-row .img {
-      grid-column: 1;
-      max-width: 28px; }
-    .row-wrapper .item-row .name {
-      grid-column: 2; }
-    .row-wrapper .item-row .quality {
-      grid-column: 3; }
-    .row-wrapper .item-row .quantity {
-      grid-column: 4; }
-    .row-wrapper .item-row .roll {
-      grid-column: 5; }
-    .row-wrapper .item-row .controls {
-      grid-column: 6;
-      display: flex;
-      flex: 0 0 100px;
-      justify-content: flex-end; }
-      .row-wrapper .item-row .controls a {
-        font-size: 12px;
-        text-align: center;
-        margin: 0 6px; }
+}
+.apocthulhu .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.apocthulhu .items-list .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.apocthulhu .items-list .item-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: left;
+}
+.apocthulhu .items-list .item-name h3, .apocthulhu .items-list .item-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.apocthulhu .items-list .item-controls {
+  justify-items: end;
+}
+.apocthulhu .items-list .item-controls a {
+  font-size: 12px;
+  text-align: right;
+  margin: 0 6px;
+}
+.apocthulhu .items-list .item {
+  align-items: left;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.apocthulhu .items-list .item:last-child {
+  border-bottom: none;
+}
+.apocthulhu .items-list .item .item-name {
+  color: #191813;
+}
+.apocthulhu .items-list .item .item-name .item-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.apocthulhu .items-list .item-prop {
+  text-align: left;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.apocthulhu .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: left;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.apocthulhu .items-list .items-header > * {
+  font-size: 12px;
+  text-align: left;
+}
+.apocthulhu .items-list .items-header .item-name {
+  padding-left: 5px;
+  text-align: left;
+}
+.apocthulhu {
+  /* Example style for apocthulhu (can be removed if not needed) */
+}
+.apocthulhu .item-formula {
+  flex: 0 0 200px;
+  padding: 0 8px;
+}
+.apocthulhu .skills-header {
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: left;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+.apocthulhu .skills-header > * {
+  font-size: 14px;
+  text-align: left;
+}
+.apocthulhu .skills-header .skill-name {
+  grid-column: 1;
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+}
+.apocthulhu .skills-header .skill-target {
+  grid-column: 2;
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+}
+.apocthulhu .skills-header .skill-fail {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  grid-column: 3;
+}
+.apocthulhu .skills-header .skill-controls {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: right;
+  align-items: right;
+  grid-column: -1;
+}
+.apocthulhu {
+  /* ----------------------------------------- */
+  /*  Items Lists                              */
+  /* ----------------------------------------- */
+}
+.apocthulhu .skills-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.apocthulhu .skills-list .skill-name {
+  grid-column: 1;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: left;
+}
+.apocthulhu .skills-list .skill-name h3, .apocthulhu .skills-list .skill-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.apocthulhu .skills-list .skill-target {
+  grid-column: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  padding-left: 5px;
+  text-align: left;
+}
+.apocthulhu .skills-list .skill-fail {
+  grid-column: 1;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  padding-left: 5px;
+  text-align: left;
+  grid-column: 3;
+}
+.apocthulhu .skills-list .skill-controls {
+  justify-items: end;
+  grid-column: -1;
+}
+.apocthulhu .skills-list .skill-controls a {
+  font-size: 12px;
+  text-align: right;
+  margin: 0 6px;
+}
+.apocthulhu .skills-list .skill {
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  align-items: left;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.apocthulhu .skills-list .skill:last-child {
+  border-bottom: none;
+}
+.apocthulhu .skills-list .skill .skill-name {
+  display: flex;
+  color: #191813;
+}
+.apocthulhu .skills-list .skill .skill-name .skill-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.apocthulhu .effects .item .effect-source,
+.apocthulhu .effects .item .effect-duration,
+.apocthulhu .effects .item .effect-controls {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.apocthulhu .effects .item .effect-controls {
+  border: none;
+}
 
 .star {
   width: 50px;
   height: 50px;
   background-color: pink;
-  position: relative; }
+  position: relative;
+}
 
 .star::before,
 .star::after {
@@ -369,30 +566,37 @@ li {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+}
 
 .star::before {
   width: 100%;
   height: 100%;
   border-top: 25px solid transparent;
   border-bottom: 25px solid transparent;
-  border-left: 50px solid pink; }
+  border-left: 50px solid pink;
+}
 
 .star::after {
   width: 100%;
   height: 100%;
   border-top: 25px solid pink;
   border-bottom: 25px solid pink;
-  border-right: 50px solid transparent; }
+  border-right: 50px solid transparent;
+}
 
 .sheet header.sheet-header .flexshrink {
-  flex: 0; }
+  flex: 0;
+}
 
-input[type="checkbox"]:checked {
-  accent-color: #907B10; }
+input[type=checkbox]:checked {
+  accent-color: #907B10;
+}
 
 .tabs .item.active {
-  text-shadow: 0 0 10px #D90101; }
+  text-shadow: 0 0 10px #D90101;
+}
 
 .resource-content {
-  margin: .25rem; }
+  margin: 0.25rem;
+}

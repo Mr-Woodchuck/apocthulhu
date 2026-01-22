@@ -1,6 +1,4 @@
-.item-form {
-  font-family: $font-primary;
-}
+@use '../utils/colors' as colors;
 
 .sheet-header {
   flex: 0 auto;
@@ -46,7 +44,7 @@
 
 .tox {
   .tox-editor-container {
-    background: $c-white;
+    background: colors.$c-white;
   }
 
   .tox-edit-area {
