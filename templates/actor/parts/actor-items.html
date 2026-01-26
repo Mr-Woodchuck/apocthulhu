@@ -1,6 +1,6 @@
 <h1> Items </h1>
-<ol class="grid-12col">
-  <li class="item flexrow">
+<ol class="items-list">
+  <li class="item flexrow items-header">
     <div class="item-name">{{localize "apocthulhu.Item.Name"}}</div>
     <div class="item-quantity">{{localize "apocthulhu.Item.Quantity"}}</div>
     <div class="item-quality">{{localize "apocthulhu.Item.Quality"}}</div>
@@ -10,17 +10,17 @@
     </div>
   </li>
   {{#each gear as |item id|}}
-    <li class="row-wrapper" data-item-id="{{item._id}}">
-      <span class="item-row">
-        <img class="img" src="{{item.img}}" title="{{item.name}}"/>
+    <li class="item flexrow" data-item-id="{{item._id}}">
+      <div class="item-name grid-2col">
+        <img class="item-image" src="{{item.img}}" title="{{item.name}}"/>
         <span class="name">{{item.name}}</span>
-        <span class="quantity">{{item.quantity}}</span>
-        <span class="quality">{{item.quality}}</span>
-        <span class="item-formula roll">{{item.system.formula}}</span>
-        <div class="controls">
-          <a class="item-control item-edit" title='{{localize "apocthulhu.Item.Edit"}}'><i class="fas fa-edit"></i></a>
-        </div>
-      </span>
+      </div>
+      <span class="item-quantity">{{item.quantity}}</span>
+      <span class="item-quality">{{item.quality}}</span>
+      <span class="item-formula roll">{{item.system.formula}}</span>
+      <div class="item-controls">
+        <a class="item-controls item-edit" title='{{localize "apocthulhu.Item.Edit"}}'><i class="fas fa-edit"></i></a>
+      </div>
     </li>
     {{/each}}
 </ol>

@@ -1,5 +1,5 @@
 <ol class="skills-list">
-  <li class="skill flexrow skills-header">
+  <li class="item flexrow skills-header">
     <div class="skill-name">{{localize "apocthulhu.Skills.Name"}}</div>
     <div class="skill-target">{{localize "apocthulhu.Skills.Target"}}</div>
     <div class="skill-fail">{{localize "apocthulhu.Skills.Fail"}}</div>
@@ -8,7 +8,7 @@
     </div>
   </li>
   {{#each skills as |skill id|}}
-    <li class="skill flexrow" data-item-id="{{skill._id}}">
+    <li class="item flexrow" data-item-id="{{skill._id}}">
       <div class="skill-name">
         <div class="skill-image">
           <a class="rollable" data-roll-type="item"><img class="skill-image" src="{{skill.img}}" title="{{skill.name}}"/></a>

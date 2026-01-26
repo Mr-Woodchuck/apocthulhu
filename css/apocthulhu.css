@@ -1,11 +1,11 @@
 /* Styles limited to apocthulhu sheets */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 ol {
-  display: grid;
+  display: block;
 }
 
 li {
-  display: grid;
+  display: list-item;
 }
 
 .row-wrapper {
@@ -325,6 +325,7 @@ li {
   font-weight: bold;
 }
 .apocthulhu .items-header {
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -341,7 +342,31 @@ li {
   font-weight: bold;
   padding-left: 5px;
   text-align: left;
-  grid-column: 4/span 3;
+  grid-column: 1;
+}
+.apocthulhu .items-header .item-quantity {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  grid-column: 2;
+}
+.apocthulhu .items-header .item-quality {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  grid-column: 3;
+}
+.apocthulhu .items-header .item-formula {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  grid-column: 4;
+}
+.apocthulhu .items-header .item-controls {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  grid-column: 5;
 }
 .apocthulhu {
   /* ----------------------------------------- */
@@ -361,28 +386,9 @@ li {
   margin: 0;
   padding: 0;
 }
-.apocthulhu .items-list .item-name {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  font-size: 13px;
-  text-align: left;
-  align-items: left;
-}
-.apocthulhu .items-list .item-name h3, .apocthulhu .items-list .item-name h4 {
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden;
-}
-.apocthulhu .items-list .item-controls {
-  justify-items: end;
-}
-.apocthulhu .items-list .item-controls a {
-  font-size: 12px;
-  text-align: right;
-  margin: 0 6px;
-}
 .apocthulhu .items-list .item {
+  align-content: center;
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
   align-items: left;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
@@ -391,14 +397,32 @@ li {
   border-bottom: none;
 }
 .apocthulhu .items-list .item .item-name {
+  align-content: center;
+  grid-column: 1;
+  grid-template-columns: 30px auto;
   color: #191813;
 }
 .apocthulhu .items-list .item .item-name .item-image {
-  flex: 0 0 30px;
   height: 30px;
   background-size: 30px;
   border: none;
   margin-right: 5px;
+}
+.apocthulhu .items-list .item .item-quantity {
+  align-content: center;
+  grid-column: 2;
+}
+.apocthulhu .items-list .item .item-quality {
+  align-content: center;
+  grid-column: 3;
+}
+.apocthulhu .items-list .item .item-formula {
+  align-content: center;
+  grid-column: 4;
+}
+.apocthulhu .items-list .item .item-controls {
+  align-content: center;
+  grid-column: 5;
 }
 .apocthulhu .items-list .item-prop {
   text-align: left;
@@ -406,32 +430,13 @@ li {
   border-right: 1px solid #c9c7b8;
   font-size: 12px;
 }
-.apocthulhu .items-list .items-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: left;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
+.apocthulhu .items ol {
+  display: grid;
 }
-.apocthulhu .items-list .items-header > * {
-  font-size: 12px;
-  text-align: left;
-}
-.apocthulhu .items-list .items-header .item-name {
-  padding-left: 5px;
-  text-align: left;
-}
-.apocthulhu {
-  /* Example style for apocthulhu (can be removed if not needed) */
-}
-.apocthulhu .item-formula {
-  flex: 0 0 200px;
-  padding: 0 8px;
+.apocthulhu .items li {
+  display: grid;
 }
 .apocthulhu .skills-header {
-  grid-template-columns: 3fr 1fr 1fr 1fr;
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -483,6 +488,7 @@ li {
   color: #444;
 }
 .apocthulhu .skills-list .skill-name {
+  align-content: center;
   grid-column: 1;
   margin: 0;
   overflow: hidden;
@@ -496,6 +502,7 @@ li {
   overflow-x: hidden;
 }
 .apocthulhu .skills-list .skill-target {
+  align-content: center;
   grid-column: 2;
   margin: 0;
   overflow: hidden;
@@ -504,6 +511,7 @@ li {
   text-align: left;
 }
 .apocthulhu .skills-list .skill-fail {
+  align-content: center;
   grid-column: 1;
   margin: 0;
   overflow: hidden;
@@ -513,33 +521,40 @@ li {
   grid-column: 3;
 }
 .apocthulhu .skills-list .skill-controls {
+  align-content: center;
   justify-items: end;
-  grid-column: -1;
+  grid-column: 4;
 }
 .apocthulhu .skills-list .skill-controls a {
   font-size: 12px;
   text-align: right;
   margin: 0 6px;
 }
-.apocthulhu .skills-list .skill {
-  grid-template-columns: 3fr 1fr 1fr 1fr;
+.apocthulhu .skills-list .item {
   align-items: left;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
 }
-.apocthulhu .skills-list .skill:last-child {
+.apocthulhu .skills-list .item:last-child {
   border-bottom: none;
 }
-.apocthulhu .skills-list .skill .skill-name {
+.apocthulhu .skills-list .item .skill-name {
   display: flex;
   color: #191813;
 }
-.apocthulhu .skills-list .skill .skill-name .skill-image {
+.apocthulhu .skills-list .item .skill-name .skill-image {
   flex: 0 0 30px;
   height: 30px;
   background-size: 30px;
   border: none;
   margin-right: 5px;
+}
+.apocthulhu .skills ol {
+  display: grid;
+}
+.apocthulhu .skills li {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
 }
 .apocthulhu .effects .item .effect-source,
 .apocthulhu .effects .item .effect-duration,
