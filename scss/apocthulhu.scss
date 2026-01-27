@@ -57,9 +57,31 @@
   border-right: 50px solid transparent;
 }
 
-.sheet header.sheet-header .flexshrink {
-  flex: 0;
+.character-header {
+  display: grid;
+  grid-template-columns: 90px 1fr 1fr;
+  gap: 10px;
+
+  .charname {
+    grid-column: 2 / span 2;
+  }
+  .character-picture {
+    grid-row: span 3;
+  }
+  div {
+    display: grid;
+  }
+  .resource-label {
+    text-align: center;
+    align-items: center;
+  }
+  .resource {
+    grid-template-columns: 1fr 13px 1fr;
+    text-align: center;
+    align-items: center;
+  }
 }
+
 
 input[type="checkbox"]:checked {
   accent-color: colors.$color-primary-0;
