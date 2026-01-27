@@ -1,9 +1,5 @@
 <section class="grid grid-3col">
   <aside class="sidebar">
-
-    {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-    use both the "grid" and "grid-Ncol" class where "N" can be any number
-    from 1 to 12 and will create that number of columns.  --}}
     <div class="abilities flexcol">
       <label class="resource-label flexlarge align-center" >Attributes</label>
 
@@ -23,7 +19,6 @@
 
   {{!-- For the main skills list, span the right two columns --}}
   <section class="main">
-    {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
     {{> "systems/apocthulhu/templates/actor/parts/npc-features.html"}}
   </section>
 

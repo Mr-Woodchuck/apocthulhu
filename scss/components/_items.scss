@@ -1,159 +1,171 @@
 @use '../utils/colors' as colors;
 @use '../utils/variables' as variables;
 
-// Section Header
-.items-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: left;
-  background: rgba(0, 0, 0, 0.05);
-  border: variables.$border-groove;
-  font-weight: bold;
-  > * {
-    font-size: 14px;
-    text-align: left;
-  }
-  .item-name {
-    font-weight: bold;
-    padding-left: 5px;
-    text-align: left;
-    grid-column: 1;
-  }
-  .item-quantity {
-    font-weight: bold;
-    padding-left: 5px;
-    text-align: left;
-    grid-column: 2;
-  }
-  .item-quality {
-    font-weight: bold;
-    padding-left: 5px;
-    text-align: left;
-    grid-column: 3;
-  }
-  .item-formula {
-    font-weight: bold;
-    padding-left: 5px;
-    text-align: left;
-    grid-column: 4;
-  }
-  .item-controls {
-    font-weight: bold;
-    padding-left: 5px;
-    text-align: left;
-    grid-column: 5;
-  }
-  .item-prop {
-    grid-column: span 1;
-  }
-}
-
-/* ----------------------------------------- */
-/*  Items Lists                              */
-/* ----------------------------------------- */
-
-.items-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  color: colors.$c-tan;
-
-  // Child lists
-  .item-list {
-    list-style: none;
-    margin: 0;
+.character {
+  // Section Header
+  .items-header {
+    height: 28px;
+    margin: 2px 0;
     padding: 0;
-  }
-
-  // Individual Item
-  .item {
-    align-content: center;
     align-items: left;
-    padding: 0 2px; // to align with the header border
-    border-bottom: 1px solid colors.$c-faint;
-    &:last-child { border-bottom: none; }
+    background: rgba(0, 0, 0, 0.05);
+    border: variables.$border-groove;
+    font-weight: bold;
+    > * {
+      font-size: 14px;
+      text-align: left;
+    }
     .item-name {
-    align-content: center;
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: left;
       grid-column: 1;
-      grid-template-columns: 30px auto;
-      color: colors.$c-dark;
-      .item-image {
-        height: 30px;
-        background-size: 30px;
-        border: none;
-        margin-right: 5px;
-      }
     }
     .item-quantity {
-    align-content: center;
-      grid-column: 2;
-    }
-    .weapon-formula {
-    align-content: center;
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: left;
       grid-column: 2;
     }
     .item-quality {
-    align-content: center;
-      grid-column: 3;
-    }
-    .weapon-range {
-    align-content: center;
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: left;
       grid-column: 3;
     }
     .item-formula {
-    align-content: center;
-      grid-column: 4;
-    }
-    .weapon-radius {
-    align-content: center;
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: left;
       grid-column: 4;
     }
     .item-controls {
-    align-content: center;
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: left;
       grid-column: 5;
+    }
+    .item-prop {
+      grid-column: span 1;
+    }
+  }
+
+  /* ----------------------------------------- */
+  /*  Items Lists                              */
+  /* ----------------------------------------- */
+
+  .items-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    color: colors.$c-tan;
+
+    // Child lists
+    .item-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    // Individual Item
+    .item {
+      align-content: center;
+      align-items: left;
+      padding: 0 2px; // to align with the header border
+      border-bottom: 1px solid colors.$c-faint;
+      &:last-child { border-bottom: none; }
+      .item-name {
+      align-content: center;
+        grid-column: 1;
+        grid-template-columns: 30px auto;
+        color: colors.$c-dark;
+        .item-image {
+          height: 30px;
+          background-size: 30px;
+          border: none;
+          margin-right: 5px;
+        }
+      }
+      .item-quantity {
+      align-content: center;
+        grid-column: 2;
+      }
+      .weapon-formula {
+      align-content: center;
+        grid-column: 2;
+      }
+      .item-quality {
+      align-content: center;
+        grid-column: 3;
+      }
+      .weapon-range {
+      align-content: center;
+        grid-column: 3;
+      }
+      .item-formula {
+      align-content: center;
+        grid-column: 4;
+      }
+      .weapon-radius {
+      align-content: center;
+        grid-column: 4;
+      }
+      .item-controls {
+      align-content: center;
+        grid-column: 5;
+      }
+
+    }
+
+    .item-prop {
+      align-content: center;
+      text-align: left;
+      border-left: 1px solid #c9c7b8;
+      border-right: 1px solid #c9c7b8;
+      font-size: 12px;
     }
 
   }
 
-  .item-prop {
-    align-content: center;
-    text-align: left;
-    border-left: 1px solid #c9c7b8;
-    border-right: 1px solid #c9c7b8;
-    font-size: 12px;
+  .items {
+    ol {
+      display: grid;
+    }
+    li {
+      display: grid;
+      grid-template-columns: auto 60px 60px 80px 80px;
+    }
   }
 
-}
+  .spells {
+    ol {
+      display: grid;
+    }
+    li {
+      display: grid;
+      grid-template-columns: auto 73px 73px 73px 139px;
+    }
+  }
 
-.items {
-  ol {
-    display: grid;
+  .effects-list {
+    ol {
+      display: grid;
+    }
+    li {
+      display: grid;
+      grid-template-columns: auto 73px 73px 69px;
+    }
   }
-  li {
-    display: grid;
-    grid-template-columns: auto 60px 60px 80px 80px;
-  }
-}
 
-.spells {
-  ol {
-    display: grid;
-  }
-  li {
-    display: grid;
-    grid-template-columns: auto 73px 73px 73px 139px;
-  }
-}
-
-.effects-list {
-  ol {
-    display: grid;
-  }
-  li {
-    display: grid;
-    grid-template-columns: auto 73px 73px 69px;
+  .skills {
+    ol {
+      display: grid;
+    }
+    li {
+      display: grid;
+      grid-template-columns: auto 50px 60px 80px;
+    }
   }
 }

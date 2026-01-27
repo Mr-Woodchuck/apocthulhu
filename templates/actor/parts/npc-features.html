@@ -1,20 +1,19 @@
-<ol class="items-list">
-  <li class="item flexrow items-header">
-    <div class="item-name">Name</div>
-    <div class="item-controls">
-      <a class="item-control item-create" title="Create item" data-type="skill"><i class="fas fa-plus"></i> Add Skill</a>
+<h1>Skills</h1>
+<ol class="skills-list">
+  <li class="item flexrow grid-2col">
+    <div class="skill-name">Name</div>
+    <div class="skill-controls">
+      <a class="skill-control skill-create" title="Create item" data-type="skill"><i class="fas fa-plus"></i> Add Skill</a>
     </div>
   </li>
   {{#each skills as |item id|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-      <div class="item-name grid-span-2">
-        <div class="item-image">
-          <a class="rollable" data-roll-type="item"><img class="item-image" src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></a>
-        </div>
-        <h4 class="rollable" data-roll-type="item" title="{{item.name}}" title="{{item.name}}">{{item.name}} ({{item.targetValue}})</h4>
+    <li class="item flexrow grid-2col" data-item-id="{{item._id}}">
+      <div class="skill-name rollable" data-roll-type="item">
+        <img class="item-image" src="{{item.img}}" title="{{item.name}}"  width="24" height="24"/>
+        <span class="name">{{item.name}}</span>
       </div>
       <div class="item-controls">
-        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+        <a class="skill-control skill-create" title="Edit Item"><i class="fas fa-edit"></i></a>
       </div>
     </li>
   {{/each}}
