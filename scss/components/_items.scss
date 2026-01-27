@@ -3,7 +3,6 @@
 
 // Section Header
 .items-header {
-  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -45,6 +44,9 @@
     text-align: left;
     grid-column: 5;
   }
+  .item-prop {
+    grid-column: span 1;
+  }
 }
 
 /* ----------------------------------------- */
@@ -69,7 +71,6 @@
   // Individual Item
   .item {
     align-content: center;
-    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
     align-items: left;
     padding: 0 2px; // to align with the header border
     border-bottom: 1px solid colors.$c-faint;
@@ -90,11 +91,23 @@
     align-content: center;
       grid-column: 2;
     }
+    .weapon-formula {
+    align-content: center;
+      grid-column: 2;
+    }
     .item-quality {
     align-content: center;
       grid-column: 3;
     }
+    .weapon-range {
+    align-content: center;
+      grid-column: 3;
+    }
     .item-formula {
+    align-content: center;
+      grid-column: 4;
+    }
+    .weapon-radius {
     align-content: center;
       grid-column: 4;
     }
@@ -106,6 +119,7 @@
   }
 
   .item-prop {
+    align-content: center;
     text-align: left;
     border-left: 1px solid #c9c7b8;
     border-right: 1px solid #c9c7b8;
@@ -120,5 +134,26 @@
   }
   li {
     display: grid;
+    grid-template-columns: auto 60px 60px 80px 80px;
+  }
+}
+
+.spells {
+  ol {
+    display: grid;
+  }
+  li {
+    display: grid;
+    grid-template-columns: auto 73px 73px 73px 139px;
+  }
+}
+
+.effects-list {
+  ol {
+    display: grid;
+  }
+  li {
+    display: grid;
+    grid-template-columns: auto 73px 73px 69px;
   }
 }

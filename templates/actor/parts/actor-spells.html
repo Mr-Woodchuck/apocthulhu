@@ -1,4 +1,4 @@
-<ol class="items-list">
+<ol class="items-list spells">
   <li class="item flexrow items-header">
     <div class="item-name">Arcane Rituals</div>
     <div class="item-prop">Study Time</div>
@@ -10,11 +10,9 @@
   </li>
   {{#each spells as |spell id|}}
     <li class="item flexrow" data-item-id="{{spell._id}}">
-      <div class="item-name flexrow">
-        <div class="item-image">
-          <a class="rollable" data-roll-type="item"><img src="{{spell.img}}" title="{{spell.name}}" width="24" height="24"/></a>
-        </div>
-        <h4>{{spell.name}}</h4>
+      <div class="item-name grid-2col">
+        <img class="item-image" src="{{spell.img}}" title="{{spell.name}}"/>
+        <span class="name">{{spell.name}}</span>
       </div>
       <div class="item-prop">{{spell.system.studyTime}}</div>
       <div class="item-prop">{{spell.system.castingTime}}</div>
@@ -35,11 +33,9 @@
   </li>
   {{#each tomes as |tome id|}}
     <li class="item flexrow" data-item-id="{{tome._id}}">
-      <div class="item-name flexrow">
-        <div class="item-image">
-          <a class="rollable" data-roll-type="item"><img src="{{tome.img}}" title="{{tome.name}}" width="24" height="24"/></a>
-        </div>
-        <h4>{{tome.name}}</h4>
+      <div class="item-name grid-2col">
+        <img class="item-image" src="{{tome.img}}" title="{{tome.name}}"/>
+        <span class="name">{{tome.name}}</span>
       </div>
       <div class="item-prop">{{tome.system.studyTime}}</div>
       <div class="item-controls">

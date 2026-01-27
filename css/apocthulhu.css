@@ -325,7 +325,6 @@ li {
   font-weight: bold;
 }
 .apocthulhu .items-header {
-  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -368,6 +367,9 @@ li {
   text-align: left;
   grid-column: 5;
 }
+.apocthulhu .items-header .item-prop {
+  grid-column: span 1;
+}
 .apocthulhu {
   /* ----------------------------------------- */
   /*  Items Lists                              */
@@ -388,7 +390,6 @@ li {
 }
 .apocthulhu .items-list .item {
   align-content: center;
-  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
   align-items: left;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
@@ -412,11 +413,23 @@ li {
   align-content: center;
   grid-column: 2;
 }
+.apocthulhu .items-list .item .weapon-formula {
+  align-content: center;
+  grid-column: 2;
+}
 .apocthulhu .items-list .item .item-quality {
   align-content: center;
   grid-column: 3;
 }
+.apocthulhu .items-list .item .weapon-range {
+  align-content: center;
+  grid-column: 3;
+}
 .apocthulhu .items-list .item .item-formula {
+  align-content: center;
+  grid-column: 4;
+}
+.apocthulhu .items-list .item .weapon-radius {
   align-content: center;
   grid-column: 4;
 }
@@ -425,6 +438,7 @@ li {
   grid-column: 5;
 }
 .apocthulhu .items-list .item-prop {
+  align-content: center;
   text-align: left;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
@@ -435,6 +449,21 @@ li {
 }
 .apocthulhu .items li {
   display: grid;
+  grid-template-columns: auto 60px 60px 80px 80px;
+}
+.apocthulhu .spells ol {
+  display: grid;
+}
+.apocthulhu .spells li {
+  display: grid;
+  grid-template-columns: auto 73px 73px 73px 139px;
+}
+.apocthulhu .effects-list ol {
+  display: grid;
+}
+.apocthulhu .effects-list li {
+  display: grid;
+  grid-template-columns: auto 73px 73px 69px;
 }
 .apocthulhu .skills-header {
   height: 28px;
@@ -554,7 +583,7 @@ li {
 }
 .apocthulhu .skills li {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 1fr;
+  grid-template-columns: auto 50px 60px 80px;
 }
 .apocthulhu .effects .item .effect-source,
 .apocthulhu .effects .item .effect-duration,

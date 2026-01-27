@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "CSS compiler for the apocthulhu system",
   "scripts": {
-    "compile:sass": "node-sass scss/apocthulhu.scss css/apocthulhu.css"
+    "compile:sass": "dart compile-sass.dart scss/apocthulhu.scss css/apocthulhu.css"
   },
   "browserslist": [
     "last 3 versions"
@@ -11,7 +11,7 @@
   "author": "Kyle Brown",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "node-sass": "^9.0.0"
+  "devDependencies": {
+    "sass": "^1.97.3"
   }
 }

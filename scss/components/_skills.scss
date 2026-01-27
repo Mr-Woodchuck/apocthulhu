@@ -130,6 +130,6 @@
   }
   li {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-columns: auto 50px 60px 80px;
   }
 }
