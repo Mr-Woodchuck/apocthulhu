@@ -54,6 +54,11 @@
 
     "menu": "Apocthulhu Settings",
     "settingsTitle": "Apocthulhu Settings",
-    "settingsHint": "Apocthulhu System Settings"
+    "settingsHint": "Apocthulhu System Settings",
+    "Bonds": {
+      "Label": "Bonds",
+      "Score": "Score"
+
+    }
   }
 }

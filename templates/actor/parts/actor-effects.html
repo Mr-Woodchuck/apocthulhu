@@ -36,19 +36,18 @@
   {{/each}}
 </ol>
 <ol class="items-list">
-  {{#each bonds as |section sid|}}
-    <li class="items-header flexrow" data-item-type="{{section.type}}">
-      <h3 class="item-name item-name flexrow">{{localize section.label}}</h3>
-      <div class="item-source">Score</div>
+    <li class="items-header flexrow" data-item-type="bond">
+      <h3 class="item-name item-name flexrow">{{localize "apocthulhu.Bonds.Label"}}</h3>
+      <div class="item-source">{{"localize apocthulhu.Bonds.Score"}}</div>
       <div class="item-controls item-controls flexrow">
-        <a class="item-create" data-action="create" title="{{localize section.label}}" data-type="{{section.type}}">
+        <a class="item-create" data-action="create" title="{{localize 'apocthulhu.Add'}}" data-type="bond">
           <i class="fas fa-plus"></i> {{localize "apocthulhu.Add"}}
         </a>
       </div>
     </li>
 
     <ol class="item-list">
-    {{#each section.bonds as |bond|}}
+    {{#each bonds as |bond sid|}}
       <li class="item item flexrow" data-item-id="{{bond._id}}">
         <div class="item-name item-name flexrow rollable">
           <img class="item-image" src="icons/svg/mystery-man.svg">
@@ -57,10 +56,11 @@
         <div class="item-source rollable" data-roll-type="item">{{bond.score}}</div>
         <div class="item-controls item-controls flexrow">
           <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+          <a class="item-delete" data-action="delete" title="{{localize 'apocthulhu.EffectDelete'}}">
+            <i class="fas fa-trash"></i>
+          </a>
         </div>
       </li>
     {{/each}}
-    </ol>
-  {{/each}}
-</ol>
+  </ol>
 </div>

@@ -99,18 +99,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
     const skills = [];
     const spells = [];
     const tomes = [];
-    const bonds = {
-      individual: {
-        type: "individual",
-        label: "Individual",
-        bonds: []
-      },
-      community: {
-        type: "community",
-        label: "Community",
-        bonds: []
-      }
-    };
+    const bonds = [];
     const motivations = [];
 
     // Iterate through items, allocating to containers
@@ -139,11 +128,8 @@ export class ApocthulhuActorSheet extends ActorSheet {
       }
       // Append to bonds.
       else if (i.type === 'bond') {
-        if (i.system.individual) {
-          bonds.individual.bonds.push(i);
-        } else {
-          bonds.community.bonds.push(i);
-        }
+        console.log(i);
+        bonds.push(i);
       }
       // Append to weapons
       else if (i.type === 'weapon') {
@@ -269,13 +255,10 @@ export class ApocthulhuActorSheet extends ActorSheet {
     const header = event.currentTarget;
 
     let type = header.dataset.type;
+    console.log(type)
 
     // Grab any data associated with this control.
-    let data = duplicate(header.dataset);
-    if (type === "individual" || type === "community") {
-      data.individual = type === "individual";
-        type = "bond";
-    }
+    let data = foundry.utils.duplicate(header.dataset);
 
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
@@ -310,7 +293,9 @@ export class ApocthulhuActorSheet extends ActorSheet {
     // delete itemData["type"];
 
     // Finally, create the item!
-    return await Item.create(itemData, {parent: this.actor});
+    console.log(itemData)
+    let item = await Item.create(itemData, {parent: this.actor});
+    return item
   }
 
   /**
