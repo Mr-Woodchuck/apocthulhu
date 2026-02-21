@@ -8,29 +8,29 @@
   </li>
   {{#each gear as |item id|}}
     <li class="item flexrow grid-2col" data-item-id="{{item._id}}">
-      <div class="item-name grid-2col">
-        <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-        <span class="name">{{item.name}}</span>
+      <div class="item-name">
+        <img class="item-image" src="{{item.img}}" title="{{item.name}}" width="20" height="20"/>
+        <h4 class="rollable" data-roll-type="item" title="{{item.name}}" title="{{item.name}}">{{item.name}}</h4>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
       </div>
     </li>
     {{/each}}
-</ol>
-<ol class="items-list">
-  <h1> Weapons </h1>
-  <li class="item flexrow grid-2col">
-    <div class="item-name">Name</div>
-    <div class="item-controls">
-      <a class="item-control item-create" title="Create Weapon" data-type="weapon"><i class="fas fa-plus"></i> Weapon</a>
-    </div>
-  </li>
-  {{#each weapons as |weapon id|}}
+  </ol>
+  <ol class="items-list">
+    <h1> Weapons </h1>
+    <li class="item flexrow grid-2col">
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create Weapon" data-type="weapon"><i class="fas fa-plus"></i> Weapon</a>
+      </div>
+    </li>
+    {{#each weapons as |weapon id|}}
     <li class="item flexrow grid-2col" data-item-id="{{weapon._id}}">
-      <div class="item-name grid-2col">
-        <img class="item-image" src="{{weapon.img}}" title="{{weapon.name}}" width="24" height="24"/>
-        <span class="name">{{weapon.name}}</span>
+      <div class="item-name">
+        <img class="item-image" src="{{weapon.img}}" title="{{weapon.name}}" width="20" height="20"/>
+        <h4 class="rollable" data-roll-type="item" title="{{weapon.name}}" title="{{weapon.name}}">{{weapon.name}}</h4>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Weapon"><i class="fas fa-edit"></i></a>

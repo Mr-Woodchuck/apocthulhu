@@ -3,8 +3,8 @@
     <div class="skill-name">{{localize "apocthulhu.Skills.Name"}}</div>
     <div class="skill-target">{{localize "apocthulhu.Skills.Target"}}</div>
     <div class="skill-fail">{{localize "apocthulhu.Skills.Fail"}}</div>
-    <div class="skill-controls">
-      <a class="skill-control skill-create" title="{{localize "apocthulhu.Skills.Add"}}" data-type="skill"><i class="fas fa-plus"></i> {{localize "apocthulhu.Skills.Add"}}</a>
+    <div class="item-controls">
+      <a class="skill-control item-create" title="{{localize "apocthulhu.Skills.Add"}}" data-type="skill"><i class="fas fa-plus"></i> {{localize "apocthulhu.Skills.Add"}}</a>
     </div>
   </li>
   {{#each skills as |skill id|}}
@@ -17,7 +17,7 @@
       </div>
       <div class="skill-target rollable" data-roll-type="item" title="{{skill.name}}">{{skill.system.targetValue}}</div>
       <div class="skill-fail" data-roll-type="item" title="{{skill.name}}"><input type="checkbox" name="items['{{skill._id}}'].system.failed" title="{{localize "apocthulhu.Skills.Fail"}} {{skill.name}}" {{#if skill.system.failed}} checked {{/if}} data-dtype="boolean"/></div>
-      <div class="skill-controls">
+      <div class="item-controls">
         <a class="item-control item-edit" title='{{localize "apocthulhu.Skills.Edit"}}'><i class="fas fa-edit"></i></a>
       </div>
     </li>

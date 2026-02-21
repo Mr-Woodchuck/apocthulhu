@@ -2,6 +2,58 @@
 @use '../utils/variables' as variables;
 
 .npc {
+      .skills-header {
+    height: 28px;
+    margin: 2px 0;
+    padding: 0;
+    align-items: left;
+    background: rgba(0, 0, 0, 0.05);
+    border: variables.$border-groove;
+    font-weight: bold;
+    > * {
+      font-size: 14px;
+      text-align: left;
+    }
+    .skill-name {
+      grid-column: 1;
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: left;
+      h3, h4 {
+        margin: 0;
+        white-space: nowrap;
+        overflow-x: hidden;
+      }
+    }
+    .skill-target {
+      grid-column: 2;
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: left;
+    }
+    .skill-fail {
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: left;
+      grid-column: 3;
+    }
+    .skill-controls {
+      font-weight: bold;
+      padding-left: 5px;
+      text-align: right;
+      align-items: right;
+      grid-column: -1;
+    }
+    .skill-image {
+        flex: 0 0 30px;
+        height: 20px;
+        background-size: 30px;
+        border: none;
+        margin-right: 5px;
+    }
+
+  }
+
     ol {
         display: grid;
     }
