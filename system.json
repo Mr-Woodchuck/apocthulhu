@@ -1,7 +1,7 @@
 {
   "title": "Apocthulhu",
   "description": "The apocthulhu system for FoundryVTT!",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "esmodules": [
     "module/Apocthulhu.mjs"
   ],
@@ -22,7 +22,7 @@
   "secondaryTokenAttribute": "sanity",
   "url": "https://github.com/Mr-Woodchuck/apocthulhu",
   "manifest": "https://raw.githubusercontent.com/Mr-Woodchuck/apocthulhu/main/system.json",
-  "download": "https://github.com/Mr-Woodchuck/apocthulhu/archive/refs/tags/1.0.7.zip",
+  "download": "https://github.com/Mr-Woodchuck/apocthulhu/archive/refs/tags/1.0.8.zip",
   "license": "LICENSE.txt",
   "id": "apocthulhu",
   "authors": [
