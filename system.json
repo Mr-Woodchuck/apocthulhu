@@ -22,7 +22,7 @@
   "secondaryTokenAttribute": "sanity",
   "url": "https://github.com/Mr-Woodchuck/apocthulhu",
   "manifest": "https://raw.githubusercontent.com/Mr-Woodchuck/apocthulhu/main/system.json",
-  "download": "https://github.com/Mr-Woodchuck/apocthulhu/archive/refs/tags/1.0.8.zip",
+  "download": "https://github.com/Mr-Woodchuck/apocthulhu/archive/refs/tags/1.0.9.zip",
   "license": "LICENSE.txt",
   "id": "apocthulhu",
   "authors": [
