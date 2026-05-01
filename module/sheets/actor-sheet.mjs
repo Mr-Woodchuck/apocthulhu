@@ -9,7 +9,7 @@ export class ApocthulhuActorSheet extends ActorSheet {
 
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["apocthulhu", "sheet", "actor"],
       template: "systems/apocthulhu/templates/actor/actor-sheet.html",
       width: 600,
@@ -128,7 +128,6 @@ export class ApocthulhuActorSheet extends ActorSheet {
       }
       // Append to bonds.
       else if (i.type === 'bond') {
-        console.log(i);
         bonds.push(i);
       }
       // Append to weapons
@@ -255,7 +254,6 @@ export class ApocthulhuActorSheet extends ActorSheet {
     const header = event.currentTarget;
 
     let type = header.dataset.type;
-    console.log(type)
 
     // Grab any data associated with this control.
     let data = foundry.utils.duplicate(header.dataset);
@@ -293,7 +291,6 @@ export class ApocthulhuActorSheet extends ActorSheet {
     // delete itemData["type"];
 
     // Finally, create the item!
-    console.log(itemData)
     let item = await Item.create(itemData, {parent: this.actor});
     return item
   }

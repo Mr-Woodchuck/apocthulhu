@@ -1,7 +1,7 @@
 {
   "title": "Apocthulhu",
   "description": "The apocthulhu system for FoundryVTT!",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "esmodules": [
     "module/Apocthulhu.mjs"
   ],
@@ -33,6 +33,6 @@
   ],
   "compatibility": {
     "minimum": "0.8.6",
-    "verified": "13"
+    "verified": "14"
   }
 }

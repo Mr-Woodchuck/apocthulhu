@@ -59,7 +59,7 @@ export async function formatRoll(
   const chatData = { dice: [], result: 0 };
 
   for (const term of roll.terms) {
-    if (term instanceof Die) {
+    if (term instanceof foundry.dice.terms.Die) {
       // Grab the right dice
       const faces = term.faces;
       let totalDice = 0;
@@ -80,7 +80,7 @@ export async function formatRoll(
   const formulaTemplate = 'systems/apocthulhu/templates/chat/roll-formula.hbs';
   html
     .find('.dice-formula')
-    .replaceWith(await renderTemplate(formulaTemplate, chatData));
+    .replaceWith(await foundry.applications.handlebars.renderTemplate(formulaTemplate, chatData));
 
   let results = { result: roll.total }
   if (lethality == true) {
@@ -95,7 +95,7 @@ export async function formatRoll(
   const resultTemplate = 'systems/apocthulhu/templates/chat/roll-result.hbs';
   html
     .find('.dice-total')
-    .replaceWith(await renderTemplate(resultTemplate, results))
+    .replaceWith(await foundry.applications.handlebars.renderTemplate(resultTemplate, results))
     .find('.item-edit').click(ev => {
       //figure out how to write back to item here
       new Dialog({
